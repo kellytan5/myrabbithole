@@ -2,6 +2,7 @@
 myrabbithole/node_modules/
 myrabbithole/dist/
 myrabbithole/.env
+myrabbithole/package-lock.json
 
 # Python (for Django)
 wonderland/venv/
