@@ -1,0 +1,6 @@
+# Node.js (for Vue.js)
+node_modules/
+*.log
+.env
+dist/
+package-lock.json
