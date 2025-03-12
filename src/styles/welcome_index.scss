@@ -1,0 +1,67 @@
+.loading-msg {
+  color: #FFFFE9;
+  margin-top: 1%;
+}
+
+.opening-msg {
+  color: #FFFFE9;
+}
+
+.retro-button {
+  font-family: 'M PLUS Code Latin';
+  background: #FDFDF3;
+  border: 2px solid #6F7570;
+  padding: 10px 20px;
+}
+
+.retro-button:hover {
+  cursor: pointer;
+}
+
+.retro-button-border {
+  padding: 5px 5px;
+  border: 2px solid #6F7570;
+  background-color: #FDFDF3;
+}
+
+.retro-loading-bar {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.start-btn {
+  margin-top: 4%;
+}
+
+.window {
+  height: 70%;
+  width: 80%;
+  background-color: #68705C;
+}
+
+.window-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.window-controls span {
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #5A5A5A;
+}
+
+.window-header {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #B7B7A4;
+  padding-right: 0.5em;
+}

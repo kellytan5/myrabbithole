@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@300&display=swap');
+
+html, body {
+  font-family: 'M PLUS Code Latin', monospace;
+  text-align: center;
+  color: #6B705C;
+  background-color: #FDFDF3;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: #6B705C;
+}
+
+input {
+  width: 70%;
+  border-radius: 2em;
+}
+
+label {
+  width: 30%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.arrow {
+  margin-right: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn, 
+.next-btn {
+  position: absolute;
+  background-color: #EDD9D3;
+  border: none;
+  border-radius: 50%;
+  width: 6vw; /* Scales with viewport width */
+  height: 6vw;
+  min-width: 50px; /* Minimum size */
+  min-height: 50px;
+  max-width: 80px; /* Maximum size */
+  max-height: 80px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.back-btn { left: 2% }
+.next-btn { right: 2% }
+
+.back-btn:hover,
+.next-btn:hover {
+  background: #dcc1ba;
+}
+
+.back-home {
+  position: absolute;
+  width: 90%;
+  bottom: 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 1%;
+  cursor: pointer;
+}
+
+.back-home:hover {
+  color: #A5A58D;
+}
+
+.btn {
+  color: #FDFDF3;
+  font-family: 'M PLUS Code Latin';
+  background: #C9CCB7;
+  border: 2px solid #FDFDF3;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-border {
+  padding: 5px 5px;
+  border: 2px solid #FDFDF3;
+  background-color: #C9CCB7;
+  border-radius: 10px;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.card-container:hover .next-btn, 
+.card-container:hover .back-btn {
+  opacity: 1; /* Show on hover */
+  transform: translateX(-10px); /* Slight movement for effect */
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.close-button {
+  cursor: pointer;
+  font-size: 10px;
+  text-decoration: none;
+  padding:10px;
+  position: absolute;
+  right: 7px;
+  top: 0;
+}
+
+.contact-btn {
+  margin-top: 5%;
+  width: 100%;
+}
+
+.container {
+  padding: 2%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+
+.desc-list {
+  padding-left: 5%;
+}
+
+.exhibit {
+  height: 90%;
+  padding: 0 3% 0 3%;
+}
+
+.exhibition-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 50vh;
+}
+
+.exp-details-container {
+  background-color: #FFD3C6;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1%;
+  border-radius: 20px;
+  height: 60vh;
+  padding: 2%;
+  position: relative;
+}
+
+.exp-list {
+  border-radius: 10px;
+  padding: 0 1% 0 1%;
+  margin-bottom: 1%;
+
+  &:nth-child(odd) {
+    background-color: #FFD3C6;
+  }
+
+  &:nth-child(even) {
+    background-color: #FFE8D6;
+  }
+}
+
+.exp-list-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  align-items: center;
+  gap: 1%;
+  height: 10vh;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 20% auto; 
+  text-align: left;
+}
+
+.header {
+  text-align: left;
+  height: 20%;
+  background-color: #FFE8D6;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.item {
+  text-align: center;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.item:hover {
+  background-color: #DDBEA9;
+  cursor: pointer;
+}
+
+.menu-button {
+  margin: 10%;
+  height: 5vh;
+  background-color: #FFE8D6;
+  border: 1px solid #DDBEA9;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+}
+
+.mini-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  background-color: #FDFDF3;
+}
+
+.mini-menu-container {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2em;
+  height: 2em;
+  color: #6B705C;
+  padding: 2%;
+}
+
+.menu-btn:hover {
+  cursor: pointer;
+}
+
+.menu-container {
+  z-index: 9999;
+}
+
+.menu-container.open .menu-btn {
+  right: 20%;
+}
+
+.modal {
+  border: 2px solid #6B705C;
+  background: #FDFDF3;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.pdf-container {
+  min-height: 40vh;
+  height: 70vh;
+}
+
+.profile-container {
+  padding: 2%;
+  align-items: center;
+  height: 100%;
+}
+
+.profile-socials {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+  width: 8%;
+  height: 7%;
+}
+
+.profile-icons {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1;
+}
+
+.profile-icons:hover {
+  cursor: pointer;
+}
+
+.profile-text-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+}
+
+.project-icons {
+  width: 1em;
+  height: 1em;
+}
+
+.project-icons:hover {
+  cursor: pointer;
+}
+
+.project-links {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 1%;
+}
+
+.related-projects {
+  position: absolute; 
+  bottom: 2%;
+  left: 2%;
+}
+
+.retro-form label {
+  width: 100%;
+}
+
+.retro-form input,
+.retro-form textarea {
+  border: 2px solid #dad8c8;
+  padding: 10px;
+  width: 90%;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.socials {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-width: 1;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.web_menu {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .project-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mini-menu {
+    width: 40%;
+  }
+
+  .menu-container.open .menu-btn {
+    right: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+}
