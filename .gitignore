@@ -1,0 +1,15 @@
+# Node.js (for Vue.js)
+myrabbithole/node_modules/
+myrabbithole/dist/
+myrabbithole/.env
+
+# Python (for Django)
+wonderland/venv/
+wonderland/__pycache__/
+wonderland/db.sqlite3
+wonderland/media/
+wonderland/staticfiles/
+
+# OS files
+.DS_Store
+*.log
