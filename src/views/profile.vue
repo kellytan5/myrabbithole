@@ -7,7 +7,7 @@
       <div class="text profile-text-container">
         <p>I am a recent Computer Science graduate located in Markham, Ontario looking to build my career in 
           Software Engineering, Artificial Intelligence and UX/UI design.</p>
-        <p>Previously I have participated in various projects and worked at multiple internships within the Greater Toronto Area. </p>
+        <p>I've worked on various projects and completed multiple internships—both in-person and remote—across the Greater Toronto Area. </p>
       </div>
     </div> <!-- aboutMe closing div -->
     <div class="content contact-btn" style="align-items: center;">

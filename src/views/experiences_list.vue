@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div class="title">
-      <p class="header-1">Work Experiences</p>
+      <p class="header-2">Work Experiences</p>
     </div>
     <div class="content">
       <ul>
-        <li class="exp-list" v-for="(item, index) in exp_items" :key="index">
+        <li class="exp-list" v-for="(item, index) in exp_list" :key="index">
           <div class="exp-list-card">
             <p style="text-align: left;">{{ item.date }}</p>
             <div style="text-align: left;">
@@ -24,16 +24,17 @@
 </template>
 
 <script>
+import api from '../api';
+
 export default {
   name: "experiences-list-view", 
   data() { 
     return {
-      exp_items: [
-        { id: 1, date: "May 2020 - Aug 2020", title: "Software Engineering Internship", company: "Cya Live", location: "Remote" },
-        { id: 2, date: "Sept 2019 - Dec 2019", title: "Software Engineering Internship", company: "Cya Live", location: "Toronto, ON" },
-        { id: 3, date: "Jan 2019 - Apr 2019", title: "IT Helpdesk Internship", company: "Centennial College", location: "Toronto, ON" }
-      ]
+      exp_list: []
     }
+  },
+  mounted() {
+    this.getData()
   },
   methods: {
     backHome() {
@@ -41,6 +42,17 @@ export default {
     }, 
     viewDetails() {
       
+    }, 
+    async getData() {
+      try {
+        // fetch data 
+        const response = await api.get('/api/exp_list/');
+        // set the data returned as experiences
+        this.exp_list = response.data;
+        console.log(this.exp_list);
+      } catch (error) {
+        console.error('There was an error: ', error);
+      }
     }
   }
 }

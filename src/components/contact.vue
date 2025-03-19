@@ -9,18 +9,22 @@
     <form v-on:submit.prevent="submitForm" class="retro-form">
       <div class="form-group">
         <label for="name">Your name:</label>
-        <input id="name" v-model="contact_name" />
+        <input id="name" v-model="form.name" />
       </div>
       <div class="form-group">
         <label for="email">Your email:</label>
-        <input id="email" v-model="contact_email" />
+        <input id="email" v-model="form.email" />
       </div>
       <div class="form-group">
         <label for="message">Leave a message:</label>
-        <textarea id="message" v-model="contact_message"></textarea>
+        <textarea id="message" v-model="form.message"></textarea>
       </div>
       <div class="content" style="align-items: center;">
         <Button type="submit" action_msg="Send Message"></Button> <!-- use Button component -->
+      </div>
+
+      <div v-if="responseMsg">
+        <p>{{ responseMsg }}</p>
       </div>
     </form>
   </div> <!-- container closing div -->
@@ -28,17 +32,19 @@
 
 <script>
 import Button from "../components/button.vue";
-// import api from '../api';
+import api from '../api';
 
 export default {
   name: "contact_me",
   data() {
     return {
       // contactlist 
-      contactlist: [''],
-      contact_name: '',
-      contact_email: '',
-      contact_message: ''
+      form: {
+        name: '',
+        email: '',
+        message: ''
+      },
+      responseMsg: ''
     };
   },
   emits: ["close"], // Define the emitted event
@@ -50,24 +56,29 @@ export default {
       this.$emit("close") // Emit the close event
       console.log("Close button clicked!");
     },
-    // async postData() {
-    //   try {
-    //     const response = await api.post('/api/tasks/', {
-    //       contact_name: this.contact_name,
-    //       contact_email: this.contact_email,
-    //       contact_message: this.contact_message
-    //     });
-    //     // append the returned data to the tasks array 
-    //     this.contactlist.push(response.data);
-    //     // reset the input field values 
-    //     this.contact_name = '';
-    //     this.contact_email = '';
-    //     this.contact_message = '';
-    //   } catch (error) {
-    //     // Log the error
-    //     console.log(error);
-    //   }
-    // }
+    async submitForm() {
+      try {
+        // Make an API request to the Django backend
+        const response = await api.post(
+          "/api/new_contact/",
+          this.form
+        );
+
+        // Show success message
+        this.responseMessage = response.data.message;
+        // Clear the form
+        this.form.name = "";
+        this.form.email = "";
+        this.form.message = "";
+      } catch (error) {
+        // Handle any errors
+        if (error.response) {
+          this.responseMessage = "There was an error submitting the form.";
+        } else {
+          this.responseMessage = "Network error. Please try again.";
+        }
+      }
+    }
   }
 }
 </script>

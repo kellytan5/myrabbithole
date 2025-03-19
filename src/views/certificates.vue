@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title">
-      <p class="header-1">Certificates</p>
+      <p class="header-2">Certificates</p>
     </div>
     <div class="content pdf-container">
       <iframe :src="pdfUrl" frameborder="0"></iframe>

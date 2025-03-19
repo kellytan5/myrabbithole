@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title">
-      <p class="header-1">Projects</p>
+      <p class="header-2">Projects</p>
     </div> <!-- title closing div -->
     <div class="content text" v-for="(item, index) in project_list" :key="index">
       <div id="project-title" class="title">
@@ -49,6 +49,7 @@
 <script>
 import { Github, User, CalendarDays, Images, Figma } from 'lucide-vue-next';
 import Exhibition from '@/components/project_exhibit.vue';
+import api from '../api'
 
 export default {
   name: "projects-view", 
@@ -62,45 +63,27 @@ export default {
   }, 
   data() {
     return {
-      project_list: [
-        {
-          title: "Rabbithole-design",
-          description: "The Rabbithole Design portfolio was meticulously crafted in Figma to visualize the layout, user experience, and design flow of the web application. The Figma prototype serves as a reference and guide throughout the development process, ensuring a cohesive design between the front-end in Vue.js and the back-end in Django. This project demonstrates my approach to combining thoughtful design with functional development, resulting in a seamless user interface that aligns with both aesthetic and technical goals.",
-          conclusion: "Satisfaction of Owner",
-          location: "Markham, ON",
-          duration: "May2024-Current",
-          position: "UI/UX Designer|Web Developer",
-          github: "",
-          figma: "",
-        },
-        {
-          title: "Ministry of Natural Resources and Forestry Services",
-          description: "Pinecone is a Python-based desktop application with an HTML interface, designed to process LiDAR scans using advanced algorithms. It enhances object identification and tree taper modeling accuracy by effectively reducing noise in the scans.",
-          conclusion: "End of University Year",
-          location: "Peterborough, ON",
-          duration: "Sept2023-Apr2024",
-          position: "Software Engineer",
-          github: "",
-          figma: null,
-        },
-        {
-          title: "MyBee Technologies Inc.",
-          description: "As part of my development process, I conducted thorough manual testing on over 200 lines of code, meticulously identifying and resolving critical bugs that were affecting the application's functionality. Through these efforts, I was able to improve performance by 30%, leading to a smoother and more responsive user experience. This hands-on approach highlights my attention to detail and commitment to delivering high-quality, user-centric applications.",
-          conclusion: "Lack of Team Members",
-          location: "Toronto, ON",
-          duration: "Dec2020-May2021",
-          position: "Quality Assurance Tester",
-          github: "",
-          figma: null,
-        }
-      ],
-      currentIndex: 0
+      project_list: []
     };
+  },
+  mounted() {
+    this.getData()
   },
   methods: {
     backHome() {
       this.$router.push('/aboutme')
     },
+    async getData() {
+      try {
+        // fetch data 
+        const response = await api.get('/api/project_list/');
+        // set the data returned as projects
+        this.project_list = response.data.sort((a, b) => b.id - a.id);
+        console.log(this.project_list);
+      } catch (error) {
+        console.error('There was an error: ', error);
+      }
+    }
   }
 }
 </script>

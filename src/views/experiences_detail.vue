@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title">
-      <p class="header-1">Work Experiences</p>
+      <p class="header-2">Work Experiences</p>
     </div>
     <div class="exp-details-container text">
       <p style="text-align: left;">duration</p>
