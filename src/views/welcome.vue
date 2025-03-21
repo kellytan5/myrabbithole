@@ -53,7 +53,7 @@ export default {
       
       const interval = setInterval(() => {
         if (this.progress < 100) {
-          this.progress += 5; // Increase progress
+          this.progress += 10; // Increase progress
         } else {
           clearInterval(interval);
           this.$router.push('/aboutme');

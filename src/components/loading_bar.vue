@@ -21,7 +21,7 @@ export default {
     startLoading() {
       const interval = setInterval(() => {
         if (this.progress < 100) {
-          this.progress += 5;
+          this.progress += 10;
         } else {
           clearInterval(interval);
         }
