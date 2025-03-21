@@ -1,5 +1,17 @@
+a {
+  color: #6B705C;
+}
+
+a:hover {
+  color: #CB997E;
+}
+
 p {
   margin: 0;
+}
+
+label {
+  width: 30%;
 }
 
 .button-text {
@@ -27,13 +39,13 @@ p {
 }
 
 .name {
-  font-family: "Qwitcher Grypen";
-  font-size: 500%;
+  font-weight: bold;
+  color: #CB997E;
 }
 
 .text {
   font-size: 20px;
-  margin-bottom: 0.5%;
+  margin-bottom: 1%;
 }
 
 .text-paragraph {

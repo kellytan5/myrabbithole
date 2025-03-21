@@ -20,7 +20,7 @@
         <textarea id="message" v-model="form.message"></textarea>
       </div>
       <div class="content" style="align-items: center;">
-        <Button type="submit" action_msg="Send Message"></Button> <!-- use Button component -->
+        <Button class="btn" type="submit" action_msg="Send Message"></Button> <!-- use Button component -->
       </div>
 
       <div v-if="responseMsg">
