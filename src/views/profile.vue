@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       contact_me: false, // Controls contact_me modal visibility, 
-      github_link: "", 
-      linkedin_link: ""
+      github_link: "https://github.com/kellytan5/", 
+      linkedin_link: "https://linkedin.com/in/kelly-tan-09/"
     };
   },
 
