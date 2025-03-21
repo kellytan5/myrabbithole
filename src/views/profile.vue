@@ -1,5 +1,5 @@
 <template>
-  <div id="profile" class="profile-container">
+  <div class="container content profile-container">
     <div id="aboutme" class="text-paragraph">
       <p class="text">Hey, My name is </p>
       <p class="header-1">Kelly Tan</p>

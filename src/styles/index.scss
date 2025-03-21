@@ -37,6 +37,10 @@ ul {
   margin: 0;
 }
 
+#app {
+   height: 100%;
+}
+
 .arrow {
   margin-right: 1%;
   display: flex;
@@ -153,7 +157,6 @@ ul {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  height: 100%;
 }
 
 .desc-list {
@@ -296,9 +299,9 @@ ul {
 }
 
 .profile-container {
-  padding: 2%;
   align-items: center;
-  height: 100%;
+  justify-content: center;
+  height: 90%;
 }
 
 .profile-socials {
