@@ -17,9 +17,6 @@
         </li>
       </ul>
     </div>
-    <div class="back-home" @click="backHome">
-      <span class="arrow">&#9664;</span><p>Back to About Me</p>
-    </div>
   </div>
 </template>
 
@@ -37,9 +34,6 @@ export default {
     this.getData()
   },
   methods: {
-    backHome() {
-      this.$router.push('/aboutme')
-    }, 
     viewDetails() {
       
     }, 

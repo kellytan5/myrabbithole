@@ -17,9 +17,6 @@
       <p style="text-align: right;">location</p>
       <a class="related-projects">Related Projects</a>
     </div>
-    <div class="back-home" @click="backHome">
-      <span class="arrow">&#9664;</span>Back to About Me
-    </div>
   </div>
 </template>
 
@@ -32,9 +29,7 @@ export default {
     }
   },
   methods: {
-    backHome() {
-      this.$router.push('/aboutme')
-    }
+
   }
 }
 </script>

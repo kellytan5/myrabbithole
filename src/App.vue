@@ -9,6 +9,9 @@
       </transition>
     </div>
     <router-view />
+    <div v-if="$route.path !== '/' && $route.path !== '/aboutme'" class="back-home" @click="backHome">
+      <span class="arrow">&#9664;</span>Back to About Me
+    </div>
   </div>
 </template>
 
@@ -30,6 +33,9 @@ export default {
     };
   },
   methods: {
+    backHome() {
+      this.$router.push('/aboutme')
+    },
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },

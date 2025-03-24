@@ -9,9 +9,6 @@
       <button class="back-btn" v-if="currentIndex > 0" @click="prevCard">←</button>
       <button class="next-btn" v-if="currentIndex < edu_list.length - 1" @click="nextCard">→</button>
     </div>
-    <div class="back-home" @click="backHome">
-      <span class="arrow">&#9664;</span><p>Back to About Me</p>
-    </div>
   </div>
 </template>
 
@@ -34,9 +31,6 @@ export default {
     this.getData();
   },
   methods: {
-    backHome() {
-      this.$router.push('/aboutme');
-    },
     async getData() {
       try {
         // fetch data 

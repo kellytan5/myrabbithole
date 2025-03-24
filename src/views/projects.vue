@@ -40,9 +40,6 @@
         <Exhibition />
       </div> <!-- exhibition closing div -->
     </div> <!-- content closing div -->
-    <div class="back-home" @click="backHome">
-      <span class="arrow">&#9664;</span>Back to About Me
-    </div>
   </div> <!-- container closing div -->
 </template>
 
@@ -70,9 +67,6 @@ export default {
     this.getData()
   },
   methods: {
-    backHome() {
-      this.$router.push('/aboutme')
-    },
     async getData() {
       try {
         // fetch data 
