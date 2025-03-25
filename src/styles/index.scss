@@ -251,6 +251,7 @@ ul {
   width: 20%;
   height: 100%;
   background-color: #FDFDF3;
+  z-index: 9999;
 }
 
 .mini-menu-container {
@@ -278,6 +279,21 @@ ul {
 
 .menu-container.open .menu-btn {
   right: 20%;
+}
+
+.menu-socials {
+  position: absolute;
+  left: 5%;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  height: 5%;
+}
+
+.menu-icons {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1;
 }
 
 .modal {
