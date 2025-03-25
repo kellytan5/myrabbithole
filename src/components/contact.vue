@@ -65,7 +65,7 @@ export default {
         );
 
         // Show success message
-        this.responseMessage = response.data.message;
+        this.responseMessage = response.data.name + "has left a message.";
         // Clear the form
         this.form.name = "";
         this.form.email = "";
