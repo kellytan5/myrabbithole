@@ -6,13 +6,20 @@
     <div class="content">
       <ul>
         <li class="exp-list" v-for="(item, index) in exp_list" :key="index">
-          <div class="exp-list-card">
-            <p style="text-align: left;">{{ item.date }}</p>
+          <div class="exp-list-card" @click="toggleDetails(index)">
+            <p style="text-align: left;">{{ formatDate(item.start_date) }} - {{ formatDate(item.end_date) }}</p>
             <div style="text-align: left;">
               <p>{{ item.title }}</p>
               <p>{{ item.company }}</p>
             </div>
             <p style="text-align: right;">{{ item.location }}</p>
+          </div>
+          <div v-if="item.showDetails">
+            <ul>
+              <li v-for="(detail, detailIndex) in item.description" :key="detailIndex">
+                {{ detail }}
+              </li>
+            </ul>
           </div>
         </li>
       </ul>
@@ -42,12 +49,21 @@ export default {
         // fetch data 
         const response = await api.get('/api/exp_list/');
         // set the data returned as experiences
-        this.exp_list = response.data;
+        this.exp_list = response.data.map(item => ({
+          ...item,
+          showDetails: false // initialize showDetails as false
+        }));
         console.log(this.exp_list);
       } catch (error) {
         console.error('There was an error: ', error);
       }
-    }
+    }, 
+    formatDate(dateStr) {
+      if (!dateStr) return "Present"; // Handle empty dates
+      const [year, month] = dateStr.split("-"); // Extract YYYY and MM
+      const date = new Date(year, month - 1); // JS months are 0-indexed
+      return `${date.toLocaleString("en-US", { month: "short" })}-${year}`; // "March-2020"
+    },
   }
 }
 </script>

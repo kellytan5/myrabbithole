@@ -8,7 +8,7 @@
             <p class="description">{{ card.description }}</p>
           </div>
           <div class="details">
-            <div class="info-duration">{{ card.location }} | {{ card.duration }}</div>
+            <div class="info-duration">{{ card.location }} | {{ formatDate(item.start_date) }} - {{ formatDate(item.end_date) }}</div>
             <div id="img" class="img-box">
               <img :src="card.image" alt="image" />
             </div>
@@ -46,7 +46,12 @@ export default {
   },
 
   methods: {
-
+    formatDate(dateStr) {
+      if (!dateStr) return "Present"; // Handle empty dates
+      const [year, month] = dateStr.split("-"); // Extract YYYY and MM
+      const date = new Date(year, month - 1); // JS months are 0-indexed
+      return `${date.toLocaleString("en-US", { month: "short" })}-${year}`; // "March-2020"
+    },
   }
 }
 </script>

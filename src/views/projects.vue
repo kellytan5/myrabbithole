@@ -25,7 +25,7 @@
         </div>
         <div id="duration">
           <CalendarDays class="project-icons" />
-          {{ item.duration }}
+          {{ formatDate(item.start_date) }} - {{ formatDate(item.end_date) }}
         </div>
         <div id="figma" v-if="item.figma != null">
           <Figma class="project-icons" />
@@ -77,7 +77,13 @@ export default {
       } catch (error) {
         console.error('There was an error: ', error);
       }
-    }
+    }, 
+    formatDate(dateStr) {
+      if (!dateStr) return "Present"; // Handle empty dates
+      const [year, month] = dateStr.split("-"); // Extract YYYY and MM
+      const date = new Date(year, month - 1); // JS months are 0-indexed
+      return `${date.toLocaleString("en-US", { month: "short" })}-${year}`; // "March-2020"
+    },
   }
 }
 </script>
