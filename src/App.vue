@@ -4,11 +4,12 @@
       <Menu @click="toggleMenu" class="menu-btn"></Menu>
       <transition name="slide">
         <div v-if="isMenuOpen" class="mini-menu">
-          <Mini_Menu />
+          <Mini_Menu @toggle-contact="toggleContact"/>
         </div>
       </transition>
     </div>
     <router-view />
+    <Contact v-if="isContactVisible" @close="toggleContact" />
     <div v-if="$route.path !== '/' && $route.path !== '/aboutme'" class="back-home" @click="backHome">
       <span class="arrow">&#9664;</span>Back to About Me
     </div>
@@ -20,16 +21,19 @@ import { Menu } from 'lucide-vue-next';
 import Mini_Menu from '@/components/mini_menu.vue';
 import { watch } from 'vue';
 import { useRoute } from 'vue-router';
+import Contact from '@/components/contact.vue';
 
 export default {
   name: 'App',
   components: {
     Menu, 
-    Mini_Menu
+    Mini_Menu, 
+    Contact
   },
   data() {
     return {
       isMenuOpen: false, // Controls mini_menu modal visibility
+      isContactVisible: false,
     };
   },
   methods: {
@@ -39,12 +43,16 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
+    toggleContact() {
+      this.isContactVisible = !this.isContactVisible;
+    }
   },
   mounted() {
     const route = useRoute();
 
     watch(route, () => {
       this.isMenuOpen = false; // Close menu when the page changes
+      this.isContactVisible = false;
     });
   },
 }

@@ -17,13 +17,14 @@
     </div>
     <div class="menu-socials">
       <a :href="github_link" target="_blank" rel="noopener noreferrer"><Github class="menu-icons"/></a>
+      <a href="#" @click.prevent="toggleContact"><MessageCircleMore class="menu-icons" /></a>
       <a :href="linkedin_link" target="_blank" rel="noopener noreferrer"><Linkedin class="menu-icons" @click="linkedin_link" /></a>
     </div>
   </div>
 </template>
 
 <script>
-import { Github, Linkedin } from 'lucide-vue-next';
+import { Github, Linkedin, MessageCircleMore } from 'lucide-vue-next';
 
 export default {
   name: 'mini-menu',
@@ -35,7 +36,8 @@ export default {
   },
   components: {
     Github, 
-    Linkedin
+    Linkedin, 
+    MessageCircleMore
   },
   methods: {
     aboutme() {
@@ -52,7 +54,10 @@ export default {
     },
     certificates() {
       this.$router.push('/certificates');
-    }
+    },
+    toggleContact() {
+      this.$emit('toggle-contact');
+    },
   }
 }
 </script>
