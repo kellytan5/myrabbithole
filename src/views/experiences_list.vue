@@ -3,23 +3,25 @@
     <div class="title">
       <p class="header-2">Work Experiences</p>
     </div>
-    <div class="content">
+    <div class="content text">
       <ul>
         <li class="exp-list" v-for="(item, index) in exp_list" :key="index">
           <div class="exp-list-card" @click="toggleDetails(index)">
-            <p style="text-align: left;">{{ formatDate(item.start_date) }} - {{ formatDate(item.end_date) }}</p>
+            <p style="text-align: left;">{{ formatDate(item.start_date) }}-{{ formatDate(item.end_date) }}</p>
             <div style="text-align: left;">
-              <p>{{ item.title }}</p>
+              <p style="font-weight: bold">{{ item.title }}</p>
               <p>{{ item.company }}</p>
             </div>
             <p style="text-align: right;">{{ item.location }}</p>
           </div>
-          <div v-if="item.showDetails">
-            <ul>
+          <div class="showDetails" v-if="item.showDetails">
+            <div></div> <!-- Empty Column -->
+            <ul class="detail-list">
               <li v-for="(detail, detailIndex) in item.description" :key="detailIndex">
-                {{ detail }}
+                <p style="text-align: left;">{{ detail }}</p>
               </li>
             </ul>
+            <p style="text-align: right">Related Projects</p>
           </div>
         </li>
       </ul>
@@ -62,8 +64,15 @@ export default {
       if (!dateStr) return "Present"; // Handle empty dates
       const [year, month] = dateStr.split("-"); // Extract YYYY and MM
       const date = new Date(year, month - 1); // JS months are 0-indexed
-      return `${date.toLocaleString("en-US", { month: "short" })}-${year}`; // "March-2020"
+      return `${date.toLocaleString("en-US", { month: "short" })} ${year}`; // "March-2020"
     },
+    toggleDetails(index) {
+      this.exp_list[index].showDetails = !this.exp_list[index].showDetails;
+    }
   }
 }
 </script>
+
+<style>
+  @import '../styles/exp_index.scss';
+</style>

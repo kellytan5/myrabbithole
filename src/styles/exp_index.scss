@@ -1,0 +1,47 @@
+.exp-list {
+  border-radius: 10px;
+  padding: 0 1% 0 1%;
+  margin-bottom: 1%;
+
+  &:nth-child(odd) {
+    background-color: #FFD3C6;
+  }
+
+  &:nth-child(even) {
+    background-color: #FFE8D6;
+  }
+}
+
+.exp-list:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.exp-list-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  align-items: center;
+  gap: 1%;
+  height: 10vh;
+}
+
+.showDetails {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  gap: 1%;
+}
+
+.detail-list {
+  list-style-type: disc;
+  margin-bottom: 2%;
+}
+
+.detail-list li {
+  padding-bottom: 2%;
+}
+
+.detail-list li::marker {
+  color: #FDFDF3; /* Marker Colour */
+  font-size: 3vh;
+}
