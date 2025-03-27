@@ -87,3 +87,7 @@ export default {
   }
 }
 </script>
+
+<style>
+  @import '../styles/project_index.scss';
+</style>
