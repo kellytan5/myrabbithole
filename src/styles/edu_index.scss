@@ -1,0 +1,40 @@
+.back-btn, 
+.next-btn {
+  position: absolute;
+  background-color: #EDD9D3;
+  border: none;
+  border-radius: 50%;
+  width: 6vw; /* Scales with viewport width */
+  height: 6vw;
+  min-width: 50px; /* Minimum size */
+  min-height: 50px;
+  max-width: 80px; /* Maximum size */
+  max-height: 80px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.back-btn { left: 2% }
+.next-btn { right: 2% }
+
+.back-btn:hover,
+.next-btn:hover {
+  background: #dcc1ba;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.card-container:hover .next-btn, 
+.card-container:hover .back-btn {
+  opacity: 1; /* Show on hover */
+  transform: translateX(-10px); /* Slight movement for effect */
+}

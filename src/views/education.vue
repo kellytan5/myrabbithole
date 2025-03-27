@@ -55,3 +55,7 @@ export default {
   }
 }
 </script>
+
+<style>
+  @import '../styles/edu_index.scss';
+</style>

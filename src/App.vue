@@ -61,6 +61,7 @@ export default {
 <style>
 @import './styles/index.scss';
 @import './styles/text_index.scss';
+@import './styles/menu_index.scss';
 
   /* Vue Transition Animations */
 .slide-enter-active, .slide-leave-active {

@@ -1,0 +1,31 @@
+.exhibit {
+  height: 90%;
+  padding: 0 3% 0 3%;
+}
+
+.exhibition-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 50vh;
+}
+
+.project-icons {
+  width: 1em;
+  height: 1em;
+}
+
+.project-icons:hover {
+  cursor: pointer;
+}
+
+.project-links {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 1%;
+}
