@@ -51,7 +51,7 @@ export default {
 
 .progress {
   height: 100%;
-  background-color: #A5A58D;
+  background-color: #DDBEA9;
   transition: width 0.5s ease-in-out;
 }
 </style>

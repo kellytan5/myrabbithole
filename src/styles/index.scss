@@ -53,7 +53,7 @@ ul {
 }
 
 .back-home:hover {
-  color: #A5A58D;
+  color: #CB997E;
 }
 
 .btn {
@@ -61,20 +61,15 @@ ul {
   font-family: 'M PLUS Code Latin';
   background-color: #C9CCB7;
   border: 2px solid #FDFDF3;
-  padding: 10px 20px;
+  outline: 2px solid #FDFDF3;
+  outline-offset: -6px; /* Controls gap */
+  padding: 15px 25px;
   border-radius: 10px;
 }
 
 .btn:hover {
   cursor: pointer;
   background-color: #CB997E;
-}
-
-.btn-border {
-  padding: 5px 5px;
-  border: 2px solid #FDFDF3;
-  background-color: #C9CCB7;
-  border-radius: 15px;
 }
 
 .center {
