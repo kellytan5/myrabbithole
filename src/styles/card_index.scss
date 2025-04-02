@@ -4,7 +4,7 @@
   justify-content: space-between;
   width: 130vh;
   max-width: 180vh;
-  min-height: 70vh; /* Ensure all cards maintain height */
+  min-height: 65vh; /* Ensure all cards maintain height */
   background-color: #FDFDF3;
   border: 3px solid #000000;
   border-radius: 20px;
@@ -14,14 +14,14 @@
   flex-grow: 1;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   padding: 3%;
 }
 
 .details {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-grow: 1; /* Ensures consistency in layout */
 }
 

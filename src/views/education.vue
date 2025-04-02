@@ -6,8 +6,10 @@
     </div>
     <div v-if="edu_list.length" class="card-container">
       <Card_container :card="edu_list[currentIndex]" />
-      <button class="back-btn" v-if="currentIndex > 0" @click="prevCard">←</button>
-      <button class="next-btn" v-if="currentIndex < edu_list.length - 1" @click="nextCard">→</button>
+      <div class="arrows">
+        <button class="back-btn" v-if="currentIndex > 0" @click="prevCard">←</button>
+        <button class="next-btn" v-if="currentIndex < edu_list.length - 1" @click="nextCard">→</button>
+      </div>
     </div>
   </div>
 </template>
@@ -36,7 +38,7 @@ export default {
         // fetch data 
         const response = await api.get('/api/edu_list/');
         // set the data returned as educations
-        this.edu_list = response.data.sort((a, b) => b.id - a.id);
+        this.edu_list = response.data.sort((a, b) => b.end_date - a.end_date);
         console.log(this.edu_list);
       } catch (error) {
         console.error('There was an error: ', error);
