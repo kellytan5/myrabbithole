@@ -1,9 +1,7 @@
 <template>
-  <div :class="button_border">
-    <button :class="button">
-      <slot>{{ action_msg }}</slot>
-    </button>
-  </div>
+  <button :class="button">
+    <slot>{{ action_msg }}</slot>
+  </button>
 </template>
 
 <script>
@@ -11,14 +9,6 @@ export default {
   name: "button_component",
 
   computed: {
-    button_border() {
-      switch (this.$route.path) {
-        case "/":
-          return "retro-button-border";
-        default:
-          return "btn-border";
-      }
-    }, 
     button() {
       switch (this.$route.path) {
         case "/":

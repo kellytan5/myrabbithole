@@ -9,19 +9,19 @@
 
 .retro-button {
   font-family: 'M PLUS Code Latin';
-  background: #FDFDF3;
+  padding: 15px 20px;
   border: 2px solid #6F7570;
-  padding: 10px 20px;
+  background-color: #FDFDF3;
+  outline: 2px solid #6F7570;
+  outline-offset: -8px; /* Controls gap */
 }
 
 .retro-button:hover {
+  color: #FDFDF3;
   cursor: pointer;
-}
-
-.retro-button-border {
-  padding: 5px 5px;
-  border: 2px solid #6F7570;
-  background-color: #FDFDF3;
+  border: 2px solid #FDFDF3;
+  background-color: #DDBEA9;
+  outline: 2px solid #FDFDF3;
 }
 
 .retro-loading-bar {
@@ -52,10 +52,14 @@
   padding-right: 10%;
 }
 
+.window-controls {
+  height: 100%;
+}
+
 .window-controls span {
-  margin-left: 8px;
+  padding-left: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 100%;
   color: #5A5A5A;
 }
 

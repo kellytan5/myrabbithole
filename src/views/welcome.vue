@@ -10,6 +10,7 @@
       </div>
       <div class="window-content">
         <div class="opening-msg text-paragraph text">
+          <CodeXml></CodeXml>
           <p>Hi! I'm Kelly Tan</p>
           <p>Welcome to My 1st Official Project, My Rabbit Hole.</p>
         </div> <!-- opening_msg closing div -->
@@ -26,13 +27,15 @@
 <script>
 import Button from "../components/button.vue";
 import LoadingBar from "../components/loading_bar.vue";
+import { CodeXml } from 'lucide-vue-next';
 
 export default {
   name: 'welcome-view',
 
   components: {
     Button,
-    LoadingBar
+    LoadingBar, 
+    CodeXml
   },
 
   data() {

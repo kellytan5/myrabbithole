@@ -1,11 +1,14 @@
+.arrows {
+  padding: 1% 0 1% 0;
+}
+
 .back-btn, 
 .next-btn {
-  position: absolute;
   background-color: #EDD9D3;
   border: none;
   border-radius: 50%;
-  width: 6vw; /* Scales with viewport width */
-  height: 6vw;
+  width: 3vw; /* Scales with viewport width */
+  height: 3vw;
   min-width: 50px; /* Minimum size */
   min-height: 50px;
   max-width: 80px; /* Maximum size */
@@ -18,8 +21,8 @@
   opacity: 0;
 }
 
-.back-btn { left: 2% }
-.next-btn { right: 2% }
+// .back-btn { left: 2% }
+// .next-btn { right: 2% }
 
 .back-btn:hover,
 .next-btn:hover {
@@ -28,9 +31,9 @@
 
 .card-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
 }
 
 .card-container:hover .next-btn, 

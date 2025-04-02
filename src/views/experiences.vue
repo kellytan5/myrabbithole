@@ -21,7 +21,7 @@
                 <p style="text-align: left;">{{ detail }}</p>
               </li>
             </ul>
-            <p style="text-align: right">Related Projects</p>
+            <a style="text-align: right">Related Projects</a>
           </div>
         </li>
       </ul>
@@ -43,9 +43,6 @@ export default {
     this.getData()
   },
   methods: {
-    viewDetails() {
-      
-    }, 
     async getData() {
       try {
         // fetch data 
