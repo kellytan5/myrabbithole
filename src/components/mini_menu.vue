@@ -47,7 +47,7 @@ export default {
       this.$router.push('/education');
     }, 
     experiences() {
-      this.$router.push('/experienceslist');
+      this.$router.push('/experiences');
     }, 
     projects() {
       this.$router.push('/projects');

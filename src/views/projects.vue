@@ -72,7 +72,7 @@ export default {
         // fetch data 
         const response = await api.get('/api/project_list/');
         // set the data returned as projects
-        this.project_list = response.data.sort((a, b) => b.id - a.id);
+        this.project_list = response.data.sort((a, b) => b.end_date - a.end_date);
         console.log(this.project_list);
       } catch (error) {
         console.error('There was an error: ', error);
@@ -82,7 +82,7 @@ export default {
       if (!dateStr) return "Present"; // Handle empty dates
       const [year, month] = dateStr.split("-"); // Extract YYYY and MM
       const date = new Date(year, month - 1); // JS months are 0-indexed
-      return `${date.toLocaleString("en-US", { month: "short" })}-${year}`; // "March-2020"
+      return `${date.toLocaleString("en-US", { month: "short" })} ${year}`; // "Mar-2020"
     },
   }
 }
