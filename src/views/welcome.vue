@@ -9,10 +9,10 @@
         </div>
       </div>
       <div class="window-content">
-        <div class="opening-msg text-paragraph text">
+        <div class="opening-msg text-paragraph">
           <CodeXml></CodeXml>
           <p>Hi! I'm Kelly Tan</p>
-          <p>Welcome to My 1st Official Project, My Rabbit Hole.</p>
+          <p>Welcome to My First Official Project, My Portfolio.</p>
         </div> <!-- opening_msg closing div -->
         <Button class="start-btn" v-if="!isLoading" action_msg="Start Here" @click="startLoading"></Button> <!-- use Button component -->
         <div id="loading_bar" v-else class="retro-loading-bar">

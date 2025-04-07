@@ -3,7 +3,7 @@
     <div id="aboutme" class="text-paragraph">
       <p class="text">Hey, My name is </p>
       <p class="header-1 name">Kelly Tan</p>
-      <p class="header-2">Welcome to my Portfolio</p>
+      <p class="header-3">Welcome to my Portfolio</p>
       <div class="text profile-text-container">
         <p>I am a passionate Computer Science graduate based in Markham, Ontario, with a keen interest in software engineering, 
           artificial intelligence, and UX/UI design. I thrive on solving complex problems and creating intuitive, visually appealing 
