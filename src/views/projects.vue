@@ -5,7 +5,7 @@
     </div> <!-- title closing div -->
     <div class="content text" v-for="(item, index) in project_list" :key="index">
       <div id="project-title" class="title">
-        <p class="header-2">{{ item.title }}</p>
+        <p class="header-3">{{ item.title }}</p>
         {{ index + 1 }} / {{ project_list.length }}
       </div> <!-- business name closing div -->
       <div id="project_desc" class="text-paragraph">
@@ -16,8 +16,10 @@
       </div> <!-- conclusion closing div -->
       <div id="links" class="project-links">
         <div id="github" class="github-icon">
-          <Github class="project-icons" />
-          Github
+          <a :href="item.github" target="_blank" rel="noopener noreferrer"><Github class="project-icons"/>Github</a>
+        </div>
+        <div id="figma" v-if="item.figma != ''">
+          <a :href="item.figma" target="_blank" rel="noopener noreferrer"><Figma class="project-icons"/>Figma</a>
         </div>
         <div id="position">
           <User class="project-icons" />
@@ -26,10 +28,6 @@
         <div id="duration">
           <CalendarDays class="project-icons" />
           {{ formatDate(item.start_date) }} - {{ formatDate(item.end_date) }}
-        </div>
-        <div id="figma" v-if="item.figma != null">
-          <Figma class="project-icons" />
-          Figma
         </div>
       </div> <!-- links closing div -->
       <div class="exhibition-container">
@@ -72,7 +70,11 @@ export default {
         // fetch data 
         const response = await api.get('/api/project_list/');
         // set the data returned as projects
-        this.project_list = response.data.sort((a, b) => b.end_date - a.end_date);
+        this.project_list = response.data.sort((a, b) => {
+          if (a.end_date === '') return -1; // a is "Present", comes first
+          if (b.end_date === '') return 1;  // b is "Present", comes first
+          return new Date(b.end_date) - new Date(a.end_date); // sort newest to oldest);
+        })
         console.log(this.project_list);
       } catch (error) {
         console.error('There was an error: ', error);
@@ -82,7 +84,7 @@ export default {
       if (!dateStr) return "Present"; // Handle empty dates
       const [year, month] = dateStr.split("-"); // Extract YYYY and MM
       const date = new Date(year, month - 1); // JS months are 0-indexed
-      return `${date.toLocaleString("en-US", { month: "short" })} ${year}`; // "Mar-2020"
+      return `${date.toLocaleString("en-US", { month: "short" })}${year}`; // "Mar-2020"
     },
   }
 }
