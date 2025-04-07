@@ -21,7 +21,7 @@
     </div>
     <div class="profile-socials">
       <a :href="github_link" target="_blank" rel="noopener noreferrer"><Github class="profile-icons"/></a>
-      <a :href="linkedin_link" target="_blank" rel="noopener noreferrer"><Linkedin class="profile-icons" @click="linkedin_link" /></a>
+      <a :href="linkedin_link" target="_blank" rel="noopener noreferrer"><Linkedin class="profile-icons"/></a>
     </div>
   </div> <!-- profile closing div -->
 </template>
