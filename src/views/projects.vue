@@ -16,10 +16,10 @@
       </div> <!-- conclusion closing div -->
       <div id="links" class="project-links">
         <div id="github" class="github-icon">
-          <a :href="item.github" target="_blank" rel="noopener noreferrer"><Github class="project-icons"/>Github</a>
+          <a :href="item.github" target="_blank" rel="noopener noreferrer"><Github class="project-icons"/> Github</a>
         </div>
         <div id="figma" v-if="item.figma != ''">
-          <a :href="item.figma" target="_blank" rel="noopener noreferrer"><Figma class="project-icons"/>Figma</a>
+          <a :href="item.figma" target="_blank" rel="noopener noreferrer"><Figma class="project-icons"/> Figma</a>
         </div>
         <div id="position">
           <User class="project-icons" />
