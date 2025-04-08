@@ -4,7 +4,7 @@
       <div class="card text-paragraph">
         <div class="card-content">
           <div id="info" class="info-text">
-            <p class="header-2">{{ card.title }}</p>
+            <p class="header-3">{{ card.title }}</p>
             <p class="description">{{ card.description }}</p>
           </div>
           <div class="details">

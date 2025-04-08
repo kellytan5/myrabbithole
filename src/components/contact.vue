@@ -17,7 +17,7 @@
       </div>
       <div class="form-group">
         <label for="message">Leave a message:</label>
-        <textarea id="message" v-model="form.message"></textarea>
+        <textarea id="message" v-model="form.message" rows="5"></textarea>
       </div>
       <div class="content" style="align-items: center;">
         <Button class="btn" type="submit" action_msg="Send Message"></Button> <!-- use Button component -->

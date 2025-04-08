@@ -14,13 +14,15 @@
             </div>
             <p style="text-align: right;">{{ item.location }}</p>
           </div>
-          <div class="showDetails" v-if="item.showDetails">
+          <div v-if="item.showDetails">
+            <div class="showDetails">
             <div></div> <!-- Empty Column -->
-            <ul class="detail-list">
-              <li v-for="(detail, detailIndex) in item.description" :key="detailIndex">
-                <p style="text-align: left;">{{ detail }}</p>
-              </li>
-            </ul>
+              <ul class="detail-list">
+                <li v-for="(detail, detailIndex) in item.description" :key="detailIndex">
+                  <p style="text-align: left;">{{ detail }}</p>
+                </li>
+              </ul>
+            </div>
             <a style="text-align: right">Related Projects</a>
           </div>
         </li>
