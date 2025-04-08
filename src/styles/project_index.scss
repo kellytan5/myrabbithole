@@ -12,6 +12,11 @@
   height: 50vh;
 }
 
+.exhibit-item {
+  flex-grow: 1;
+  flex-basis: 200;
+}
+
 .project-icons {
   width: 1em;
   height: 1em;
@@ -26,6 +31,6 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  width: 55%;
+  width: 60%;
   margin-top: 1%;
 }

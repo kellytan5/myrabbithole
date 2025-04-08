@@ -42,13 +42,12 @@ ul {
 
 .back-home {
   position: fixed;
-  width: 40%;
-  left: 2%;
   bottom: 2%;
+  width: 40%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-top: 1%;
+  padding: 1% 0 0 5%;
   cursor: pointer;
 }
 
@@ -74,7 +73,7 @@ ul {
 
 .center {
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -137,13 +136,13 @@ ul {
 }
 
 .profile-container {
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 90%;
 }
 
 .profile-socials {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   display: flex;
@@ -207,22 +206,4 @@ ul {
 .web_menu {
   display: flex;
   flex-direction: row;
-}
-
-@media (max-width: 768px) {
-  .project-links {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .mini-menu {
-    width: 40%;
-  }
-
-  .menu-container.open .menu-btn {
-    right: 40%;
-  }
-}
-
-@media (max-width: 480px) {
 }
