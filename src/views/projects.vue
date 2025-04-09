@@ -18,7 +18,7 @@
         <div id="github" class="github-icon">
           <a :href="item.github" target="_blank" rel="noopener noreferrer"><Github class="project-icons"/> Github</a>
         </div>
-        <div id="figma" v-if="item.figma != ''">
+        <div id="figma" v-if="item.figma">
           <a :href="item.figma" target="_blank" rel="noopener noreferrer"><Figma class="project-icons"/> Figma</a>
         </div>
         <div id="position">
@@ -30,7 +30,7 @@
           {{ formatDate(item.start_date) }} - {{ formatDate(item.end_date) }}
         </div>
       </div> <!-- links closing div -->
-      <div class="exhibition-container">
+      <div class="exhibition-container" v-if="item.images == []">
         <p class="header-3">
           <Images class="project-icons" />
           Exhibition:
