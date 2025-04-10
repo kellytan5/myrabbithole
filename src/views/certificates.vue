@@ -17,6 +17,9 @@ export default {
       pdfUrl: new URL('@/assets/Certificate.pdf', import.meta.url).href
     }
   },
+  mounted() {
+    console.log(this.pdfUrl);
+  },
   methods: {
   }
 }
