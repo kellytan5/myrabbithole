@@ -1,24 +1,72 @@
 <template>
   <div class="container">
-    <button v-if="showArrows" @click="scrollLeft" class="arrow back-btn">&lt;</button>
     <div ref="exhibitRef" class="exhibit">
-      <div v-for="(item, index) in exhibitItems" :key="index" class="exhibit-item"></div>
+      <div v-for="(item, index) in displayedItems" :key="item.id" class="exhibit-item">
+        <!-- If it's an image -->
+        <img
+          v-if="isImage(item.image)"
+          :src="`/project_content/${extractFileName(item.image)}`"
+          :alt="'Exhibit Image ' + index"
+        />
+        <!-- If it's a PDF -->
+        <iframe
+          v-else-if="isPDF(item.image)"
+          :src="`/project_content/${extractFileName(item.image)}#toolbar=0`"
+          :alt="'Exhibit Image ' + index"
+          width="100%"
+        ></iframe>
+      </div>
     </div>
-    <button v-if="showArrows" @click="scrollRight" class="arrow next-btn">&gt;</button>
+    <div v-if="exhibitItems.length > 2">
+      <button @click="previous" :disabled="currentIndex === 0">←</button>
+      <button @click="next" :disabled="currentIndex + 2 >= exhibitItems.length">→</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "project-exhibit", 
+  props: {
+    exhibitItems: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    displayedItems() {
+      // Slice the array to display only 4 items at a time
+      return this.exhibitItems.slice(this.currentIndex, this.currentIndex + 2);
+    },
+  },
   data() {
     return {
-      exhibitItems: [
-        { id: 1 },
-        { id: 2 },
-        { id: 3 },
-        { id: 4 },
-      ]
+      currentIndex: 0
+    }
+  },
+  methods: {
+    isImage(file) {
+      return /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(file);
+    },
+    isPDF(file) {
+      return /\.pdf$/i.test(file);
+    },
+    next() {
+      // Move to the next set of images
+      if (this.currentIndex + 2 < this.exhibitItems.length) {
+        this.currentIndex += 2;
+      }
+    },
+    previous() {
+      // Move to the previous set of images
+      if (this.currentIndex - 2 >= 0) {
+        this.currentIndex -= 2;
+      }
+    }, 
+    extractFileName(url) {
+      if (!url) return '';
+      // This removes everything before the last slash
+      return url.split('/').pop();
     }
   }
 }

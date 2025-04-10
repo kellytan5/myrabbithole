@@ -15,27 +15,27 @@
         Conclusion: {{ item.conclusion }}
       </div> <!-- conclusion closing div -->
       <div id="links" class="project-links">
-        <div id="github" class="github-icon">
+        <div id="github" class="github-icon" v-if="item.github">
           <a :href="item.github" target="_blank" rel="noopener noreferrer"><Github class="project-icons"/> Github</a>
         </div>
         <div id="figma" v-if="item.figma">
           <a :href="item.figma" target="_blank" rel="noopener noreferrer"><Figma class="project-icons"/> Figma</a>
         </div>
-        <div id="position">
+        <div id="position" v-if="item.position">
           <User class="project-icons" />
           {{ item.position }}
         </div>
-        <div id="duration">
+        <div id="duration" v-if="item.start_date">
           <CalendarDays class="project-icons" />
           {{ formatDate(item.start_date) }} - {{ formatDate(item.end_date) }}
         </div>
       </div> <!-- links closing div -->
-      <div class="exhibition-container" v-if="item.images == []">
-        <p class="header-3">
+      <div class="exhibition-container" v-if="item.images.length">
+        <p class="header-4">
           <Images class="project-icons" />
           Exhibition:
         </p>
-        <Exhibition />
+        <Exhibition :exhibitItems="item.images" />
       </div> <!-- exhibition closing div -->
     </div> <!-- content closing div -->
   </div> <!-- container closing div -->
@@ -58,7 +58,8 @@ export default {
   }, 
   data() {
     return {
-      project_list: []
+      project_list: [], 
+      exhibitIndex: 0,
     };
   },
   mounted() {
