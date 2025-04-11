@@ -28,7 +28,7 @@ export default {
   components: {
     Menu, 
     Mini_Menu, 
-    Contact
+    Contact, 
   },
   data() {
     return {

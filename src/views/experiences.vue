@@ -3,6 +3,7 @@
     <div class="title">
       <p class="header-2">Work Experiences</p>
     </div>
+    <LoadingSpinner v-if="isloading" />
     <div class="content text">
       <ul>
         <li class="exp-list" v-for="(item, index) in exp_list" :key="index">
@@ -23,7 +24,7 @@
                 </li>
               </ul>
             </div>
-            <a style="text-align: right">Related Projects</a>
+            <a v-if="item.projects.length" style="text-align: right">Related Projects</a>
           </div>
         </li>
       </ul>
@@ -33,16 +34,26 @@
 
 <script>
 import api from '../api';
+import LoadingSpinner from '@/components/loading_spinner.vue';
 
 export default {
   name: "experiences-list-view", 
+  components: {
+    LoadingSpinner
+  },
   data() { 
     return {
-      exp_list: []
+      exp_list: [], 
+      isloading: true,
     }
   },
-  mounted() {
-    this.getData()
+  async mounted() {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      this.getData()
+    } finally {
+      this.isLoading = false
+    }
   },
   methods: {
     async getData() {

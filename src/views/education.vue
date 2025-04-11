@@ -4,6 +4,7 @@
       <p class="header-2">Education</p>
       <p> {{ currentIndex + 1 }} / {{ edu_list.length }}</p>
     </div>
+    <LoadingSpinner v-if="isloading" />
     <div v-if="edu_list.length" class="card-container">
       <Card_container :card="edu_list[currentIndex]" />
       <div class="arrows">
@@ -17,20 +18,28 @@
 <script>
 import Card_container from '@/components/card_container.vue';
 import api from '../api';
+import LoadingSpinner from '@/components/loading_spinner.vue';
 
 export default {
   name: "education-view",
   components: { 
     Card_container,
+    LoadingSpinner
   },
   data() {
     return {
       edu_list: [],
-      currentIndex: 0
+      currentIndex: 0, 
+      isloading: true
     };
   },  
-  mounted() {
-    this.getData();
+  async mounted() {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      this.getData()
+    } finally {
+      this.isLoading = false
+    }
   },
   methods: {
     async getData() {
@@ -38,7 +47,7 @@ export default {
         // fetch data 
         const response = await api.get('/api/edu_list/');
         // set the data returned as educations
-        this.edu_list = response.data.sort((a, b) => b.end_date - a.end_date);
+        this.edu_list = response.data.sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
         console.log(this.edu_list);
       } catch (error) {
         console.error('There was an error: ', error);

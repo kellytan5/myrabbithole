@@ -4,23 +4,14 @@
       <p class="header-2">Certificates</p>
     </div>
     <div class="content pdf-container">
-      <iframe :src="pdfUrl" frameborder="0"></iframe>
+      <iframe :src="`/Certificate.pdf#toolbar=0`" frameborder="0"></iframe>
+      <a href="https://coursera.org/share/c88ed0d55b3ec87311e7b521b430f96d" class="text" target="_blank" rel="noopener noreferrer">Link to Certificate</a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "certificates-view",
-  data() {
-    return {
-      pdfUrl: new URL('@/assets/Certificate.pdf', import.meta.url).href
-    }
-  },
-  mounted() {
-    console.log(this.pdfUrl);
-  },
-  methods: {
-  }
+  name: "certificates-view"
 }
 </script>
