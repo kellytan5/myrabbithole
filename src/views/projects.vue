@@ -3,7 +3,8 @@
     <div class="title">
       <p class="header-2">Projects</p>
     </div> <!-- title closing div -->
-    <div class="content text" v-for="(item, index) in project_list" :key="index">
+    <LoadingSpinner v-if="isloading" />
+    <div v-else class="content text" v-for="(item, index) in project_list" :key="index">
       <div id="project-title" class="title">
         <p class="header-3">{{ item.title }}</p>
         {{ index + 1 }} / {{ project_list.length }}
@@ -44,7 +45,8 @@
 <script>
 import { Github, User, CalendarDays, Images, Figma } from 'lucide-vue-next';
 import Exhibition from '@/components/project_exhibit.vue';
-import api from '../api'
+import api from '../api';
+import LoadingSpinner from '@/components/loading_spinner.vue';
 
 export default {
   name: "projects-view", 
@@ -54,16 +56,23 @@ export default {
     CalendarDays, 
     Images, 
     Figma,
-    Exhibition
+    Exhibition, 
+    LoadingSpinner
   }, 
   data() {
     return {
       project_list: [], 
       exhibitIndex: 0,
+      isloading: true,
     };
   },
-  mounted() {
-    this.getData()
+  async mounted() {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      this.getData()
+    } finally {
+      this.isLoading = false
+    }
   },
   methods: {
     async getData() {
@@ -79,13 +88,13 @@ export default {
         console.log(this.project_list);
       } catch (error) {
         console.error('There was an error: ', error);
-      }
+      } 
     }, 
     formatDate(dateStr) {
       if (!dateStr) return "Present"; // Handle empty dates
       const [year, month] = dateStr.split("-"); // Extract YYYY and MM
       const date = new Date(year, month - 1); // JS months are 0-indexed
-      return `${date.toLocaleString("en-US", { month: "short" })}${year}`; // "Mar-2020"
+      return `${date.toLocaleString("en-US", { month: "short" })} ${year}`; // "Mar-2020"
     },
   }
 }
