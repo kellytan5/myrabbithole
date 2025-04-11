@@ -5,20 +5,20 @@
       <p> {{ currentIndex + 1 }} / {{ edu_list.length }}</p>
     </div>
     <LoadingSpinner v-if="isloading" />
-    <div v-if="edu_list.length" class="card-container">
-      <Card_container :card="edu_list[currentIndex]" />
-      <div class="arrows">
-        <button class="back-btn" v-if="currentIndex > 0" @click="prevCard">←</button>
-        <button class="next-btn" v-if="currentIndex < edu_list.length - 1" @click="nextCard">→</button>
-      </div>
+    <div v-else-if="edu_list.length" class="card-container">
+        <Card_container :card="edu_list[currentIndex]" />
+        <div class="arrows">
+          <button class="back-btn" v-if="currentIndex > 0" @click="prevCard">←</button>
+          <button class="next-btn" v-if="currentIndex < edu_list.length - 1" @click="nextCard">→</button>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
 import Card_container from '@/components/card_container.vue';
-import api from '../api';
 import LoadingSpinner from '@/components/loading_spinner.vue';
+import api from '../api';
 
 export default {
   name: "education-view",
@@ -38,7 +38,7 @@ export default {
       await new Promise(resolve => setTimeout(resolve, 2000))
       this.getData()
     } finally {
-      this.isLoading = false
+      this.isloading = false
     }
   },
   methods: {

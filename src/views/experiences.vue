@@ -4,7 +4,7 @@
       <p class="header-2">Work Experiences</p>
     </div>
     <LoadingSpinner v-if="isloading" />
-    <div class="content text">
+    <div v-else class="content text">
       <ul>
         <li class="exp-list" v-for="(item, index) in exp_list" :key="index">
           <div class="exp-list-card" @click="toggleDetails(index)">
@@ -52,7 +52,7 @@ export default {
       await new Promise(resolve => setTimeout(resolve, 2000))
       this.getData()
     } finally {
-      this.isLoading = false
+      this.isloading = false
     }
   },
   methods: {

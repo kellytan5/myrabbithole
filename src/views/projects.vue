@@ -71,7 +71,7 @@ export default {
       await new Promise(resolve => setTimeout(resolve, 2000))
       this.getData()
     } finally {
-      this.isLoading = false
+      this.isloading = false
     }
   },
   methods: {
