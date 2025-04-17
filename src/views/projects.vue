@@ -3,7 +3,11 @@
     <div class="title">
       <p class="header-2">Projects</p>
     </div> <!-- title closing div -->
-    <LoadingSpinner v-if="isloading" />
+    <LoadingSpinner v-if="isloading" /> <!-- LoadingSpinner -->
+    <div v-if="isError"> <!-- Load Error -->
+      <CloudAlert />
+      <p>Looks like something went wrong.</p>
+    </div>
     <div v-else class="content text" v-for="(item, index) in project_list" :key="index">
       <div id="project-title" class="title">
         <p class="header-3">{{ item.title }}</p>
@@ -43,7 +47,7 @@
 </template>
 
 <script>
-import { Github, User, CalendarDays, Images, Figma } from 'lucide-vue-next';
+import { Github, User, CalendarDays, Images, Figma, CloudAlert } from 'lucide-vue-next';
 import Exhibition from '@/components/project_exhibit.vue';
 import api from '../api';
 import LoadingSpinner from '@/components/loading_spinner.vue';
@@ -57,19 +61,20 @@ export default {
     Images, 
     Figma,
     Exhibition, 
-    LoadingSpinner
+    LoadingSpinner,
+    CloudAlert
   }, 
   data() {
     return {
       project_list: [], 
       exhibitIndex: 0,
       isloading: true,
+      isError: false,
     };
   },
   async mounted() {
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      this.getData()
+      await this.getData()
     } finally {
       this.isloading = false
     }
@@ -87,6 +92,7 @@ export default {
         })
         console.log(this.project_list);
       } catch (error) {
+        this.isError = true;
         console.error('There was an error: ', error);
       } 
     }, 

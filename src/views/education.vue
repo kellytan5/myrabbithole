@@ -5,6 +5,10 @@
       <p> {{ currentIndex + 1 }} / {{ edu_list.length }}</p>
     </div>
     <LoadingSpinner v-if="isloading" />
+    <div v-if="isError">
+      <CloudAlert />
+      <p>Looks like something went wrong.</p>
+    </div>
     <div v-else-if="edu_list.length" class="card-container">
         <Card_container :card="edu_list[currentIndex]" />
         <div class="arrows">
@@ -18,27 +22,29 @@
 <script>
 import Card_container from '@/components/card_container.vue';
 import LoadingSpinner from '@/components/loading_spinner.vue';
+import { CloudAlert } from 'lucide-vue-next';
 import api from '../api';
 
 export default {
   name: "education-view",
   components: { 
     Card_container,
-    LoadingSpinner
+    LoadingSpinner, 
+    CloudAlert
   },
   data() {
     return {
       edu_list: [],
       currentIndex: 0, 
-      isloading: true
+      isloading: true, 
+      isError: false
     };
   },  
   async mounted() {
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      this.getData()
+      await this.getData();
     } finally {
-      this.isloading = false
+      this.isloading = false;
     }
   },
   methods: {
@@ -50,6 +56,7 @@ export default {
         this.edu_list = response.data.sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
         console.log(this.edu_list);
       } catch (error) {
+        this.isError = true;
         console.error('There was an error: ', error);
       }
     },
