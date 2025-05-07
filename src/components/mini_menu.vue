@@ -1,6 +1,6 @@
 <template>
   <div class="mini-menu-container">
-    <div class="menu-button" style="margin: 10% 5% 5% 5%;" @click="aboutme">
+    <div class="menu-button" style="margin: 10% 3% 3% 3%;" @click="aboutme">
         <p>About Me</p>
     </div>
     <div class="menu-button" @click="education">
@@ -20,11 +20,13 @@
       <a href="#" @click.prevent="toggleContact"><MessageCircleMore class="menu-icons" /></a>
       <a :href="linkedin_link" target="_blank" rel="noopener noreferrer"><Linkedin class="menu-icons" @click="linkedin_link" /></a>
     </div>
+    <ChatBot></ChatBot>
   </div>
 </template>
 
 <script>
 import { Github, Linkedin, MessageCircleMore } from 'lucide-vue-next';
+import ChatBot from '@/components/chatbot.vue';
 
 export default {
   name: 'mini-menu',
@@ -37,7 +39,8 @@ export default {
   components: {
     Github, 
     Linkedin, 
-    MessageCircleMore
+    MessageCircleMore, 
+    ChatBot
   },
   methods: {
     aboutme() {
