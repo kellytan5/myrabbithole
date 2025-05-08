@@ -11,7 +11,11 @@
     <div v-else class="content text">
       <ul>
         <li class="exp-list" v-for="(item, index) in exp_list" :key="index">
-          <div class="exp-list-card" @click="toggleDetails(index)">
+          <div class="exp-list-card" @click="toggleDetails(index)" :ref="`expItem-${index}`" v-tippy="{
+              content: 'Expand for More Information',
+              followCursor: true,
+              placement: 'top',
+            }">
             <p style="text-align: left;">{{ formatDate(item.start_date) }}-{{ formatDate(item.end_date) }}</p>
             <div style="text-align: left;">
               <p style="font-weight: bold">{{ item.title }}</p>
@@ -85,7 +89,18 @@ export default {
     },
     toggleDetails(index) {
       this.exp_list[index].showDetails = !this.exp_list[index].showDetails;
-    }
+      if (this.exp_list[index].showDetails) {
+        this.$nextTick(() => {
+          const el = this.$refs[`expItem-${index}`]?.[0] || this.$refs[`expItem-${index}`];
+          if (el) {
+            el.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+        });
+      }
+    }, 
   }
 }
 </script>

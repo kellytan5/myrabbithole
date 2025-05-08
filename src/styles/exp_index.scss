@@ -12,9 +12,8 @@
   }
 }
 
-.exp-list:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
+.exp-list:hover {
+  cursor: pointer;
 }
 
 .exp-list-card {

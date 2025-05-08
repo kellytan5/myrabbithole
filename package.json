@@ -11,8 +11,10 @@
     "axios": "^1.8.3",
     "core-js": "^3.8.3",
     "lucide-vue-next": "^0.479.0",
+    "tippy.js": "^6.3.7",
     "vue": "^3.2.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "vue-tippy": "^6.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
