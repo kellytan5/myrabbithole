@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div v-if="$route.path !== '/'" class="menu-container" :class="{ open: isMenuOpen }">
-      <Menu @click="toggleMenu" class="menu-btn"></Menu>
+      <Menu @click="toggleMenu" class="menu-btn" v-tippy="{ placement : 'left' }" content="Menu"></Menu>
       <transition name="slide">
         <div v-if="isMenuOpen" class="mini-menu">
           <Mini_Menu @toggle-contact="toggleContact"/>

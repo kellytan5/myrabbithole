@@ -4,7 +4,7 @@
       Chat with me
     </div>
 
-    <div class="chatbot-messages">
+    <div ref="chatContainer" class="chatbot-messages">
       <div
         v-for="(msg, index) in messages"
         :key="index"
@@ -54,18 +54,27 @@ export default {
       this.messages.push({ from: 'user', text: message })
       this.userInput = ''
       this.loading = true
+      this.$nextTick(this.scrollToBottom) // Scroll after user message
 
       try {
         const response = await api.post('/api/chat/', { message })
         this.messages.push({ from: 'bot', text: response.data.response })
+        this.$nextTick(this.scrollToBottom) // Scroll after bot message
       } catch (error) {
         console.error(error)
         this.messages.push({
           from: 'bot',
           text: 'Sorry, something went wrong.'
         })
+        this.$nextTick(this.scrollToBottom)
       } finally {
         this.loading = false
+      }
+    }, 
+    scrollToBottom() {
+      const container = this.$refs.chatContainer
+      if (container) {
+        container.scrollTop = container.scrollHeight
       }
     }
   }
