@@ -54,12 +54,14 @@ export default {
       this.messages.push({ from: 'user', text: message })
       this.userInput = ''
       this.loading = true
-      this.$nextTick(this.scrollToBottom) // Scroll after user message
+      this.$nextTick(this.scrollToBottom)
 
       try {
-        const response = await api.post('/api/chat/', { message })
+        const response = await api.get('/api/chatbot/get-response/', {
+          params: { message: message }
+        })
         this.messages.push({ from: 'bot', text: response.data.response })
-        this.$nextTick(this.scrollToBottom) // Scroll after bot message
+        this.$nextTick(this.scrollToBottom)
       } catch (error) {
         console.error(error)
         this.messages.push({
@@ -70,7 +72,7 @@ export default {
       } finally {
         this.loading = false
       }
-    }, 
+    },
     scrollToBottom() {
       const container = this.$refs.chatContainer
       if (container) {
