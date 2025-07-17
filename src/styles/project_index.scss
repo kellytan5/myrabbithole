@@ -1,10 +1,13 @@
 .exhibit {
   height: 90%;
   padding: 0 3% 0 3%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .exhibition-container {
   display: flex;
+  flex-wrap: 1;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
@@ -14,7 +17,7 @@
 
 .exhibit-item {
   flex-grow: 1;
-  flex-basis: 200;
+  flex-basis: 300px;
 }
 
 .project-icons {
@@ -33,4 +36,14 @@
   width: 100%;
   gap: 3%;
   margin-top: 1%;
+}
+
+@media (max-width: 768px) {
+  .exhibition-container {
+    height: auto;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="mini-menu-container">
-    <div class="menu-button" style="margin: 10% 3% 3% 3%;" @click="aboutme">
+    <div class="menu-button" style="margin-top: 10%" @click="aboutme">
         <p>About Me</p>
     </div>
     <div class="menu-button" @click="education">

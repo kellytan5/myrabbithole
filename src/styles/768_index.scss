@@ -1,4 +1,4 @@
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .back-home {
     width: 90%;
   }
@@ -25,6 +25,10 @@
 
   .mini-menu {
     width: 80%;
+  }
+
+  .menu-button {
+    margin: 1%;
   }
 
   .menu-container.open .menu-btn {

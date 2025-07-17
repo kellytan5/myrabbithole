@@ -1,9 +1,8 @@
 .card {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
-  width: 130vh;
-  max-width: 180vh;
   min-height: 65vh; /* Ensure all cards maintain height */
   background-color: #FDFDF3;
   border: 3px solid #000000;
@@ -28,16 +27,17 @@
 
 .img-box {
   flex-shrink: 0; /* Prevents shrinking */
-  width: 200px
+  width: 20vh;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .img-box img {
-  width: 100%;
-  max-width: 200px; /* Adjust as needed */
-  height: auto;
+  height: 30%;
   object-fit: contain;
-  background: white;
-  border: 2px solid #000000;
+  transform: rotate(-90deg);
 }
 
 .info-text {
@@ -77,16 +77,24 @@
   .card-content {
     flex-direction: column;
     align-items: flex-start;
+    grid-gap: 15px;
+  }
+
+  .details {
+    transform: rotate(90deg);
   }
 
   .img-box {
-    width: 100%;
+    width: 50%;
   }
 }
 
 @media (max-width: 480px) {
   .card {
     width: 95%;
-    padding: 10px;
+  }
+  
+  .info-footer {
+    padding: 3%;
   }
 }
