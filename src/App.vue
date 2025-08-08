@@ -8,7 +8,11 @@
         </div>
       </transition>
     </div>
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition name="slide-down">
+        <Component :is="Component" />
+      </Transition>
+    </router-view>
     <Contact v-if="isContactVisible" @close="toggleContact" />
     <div v-if="$route.path !== '/' && $route.path !== '/aboutme'" class="back-home" @click="backHome">
       <span class="arrow">&#9664;</span>Back to About Me
@@ -71,5 +75,14 @@ export default {
 
 .slide-enter-from, .slide-leave-to {
   transform: translateX(100%);
+}
+
+.slide-down-enter-from, .slide-down-leave-to {
+  opacity: 0; 
+  transform: translateY(50%);
+}
+
+.slide-down-enter-active, .slide-down-leave-active {
+  transition: 0.3s ease-out;
 }
 </style>
