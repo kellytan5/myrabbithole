@@ -1,24 +1,22 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
 import WelcomeView from '../views/welcome.vue'
-import ProfileView from '../views/profile.vue'
-import EducationView from '../views/education.vue'
-import ExperienceView from '../views/experiences.vue'
-import CertificatesView from '../views/certificates.vue'
-import ProjectsView from '../views/projects.vue'
+import MainView from '../views/main.vue'
 
 const routes = [
   { path: '/', component: WelcomeView },
-  { path: '/aboutme', component: ProfileView },
-  { path: '/education', component: EducationView },
-  { path: '/experiences', component: ExperienceView },
-  { path: '/certificates', component: CertificatesView },
-  { path: '/projects', component: ProjectsView },
+  { path: '/home', component: MainView },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { el: to.hash, behavior: 'smooth' }
+    }
+    return { top: 0 }
+  },
 })
 
 export default router

@@ -3,7 +3,7 @@
     <!-- title -->
     <p class="header-2">Projects</p>
     <LoadingSpinner v-if="isloading" /> <!-- LoadingSpinner -->
-    <div v-if="isError" class="center"> <!-- Load Error -->
+    <div v-if="isError"> <!-- Load Error -->
       <CloudAlert />
       <p>Looks like something went wrong.</p>
     </div>
