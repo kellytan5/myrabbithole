@@ -15,10 +15,6 @@
           developer and designer.</p>
       </div>
     </div> <!-- aboutMe closing div -->
-    <div class="content contact-btn" style="align-items: center;">
-      <Button class="btn btn-text" action_msg="Get In Touch" @click="contact_me = true"></Button>
-      <Contact v-if="contact_me" @close="contact_me = false" />
-    </div>
     <div class="profile-socials">
       <a :href="github_link" target="_blank" rel="noopener noreferrer"><Github class="profile-icons"/></a>
       <a :href="linkedin_link" target="_blank" rel="noopener noreferrer"><Linkedin class="profile-icons"/></a>
@@ -27,8 +23,6 @@
 </template>
 
 <script>
-import Button from '@/components/button.vue';
-import Contact from '@/components/contact.vue';
 import { Github, Linkedin } from 'lucide-vue-next';
 
 export default {
@@ -36,15 +30,12 @@ export default {
 
   data() {
     return {
-      contact_me: false, // Controls contact_me modal visibility, 
       github_link: "https://github.com/kellytan5/", 
       linkedin_link: "https://linkedin.com/in/kelly-tan-09/"
     };
   },
 
   components: {
-    Button,
-    Contact, 
     Github, 
     Linkedin
   },
