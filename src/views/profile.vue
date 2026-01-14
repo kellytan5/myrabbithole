@@ -15,33 +15,12 @@
           developer and designer.</p>
       </div>
     </div> <!-- aboutMe closing div -->
-    <div class="profile-socials">
-      <a :href="github_link" target="_blank" rel="noopener noreferrer"><Github class="profile-icons"/></a>
-      <a :href="linkedin_link" target="_blank" rel="noopener noreferrer"><Linkedin class="profile-icons"/></a>
-    </div>
   </div> <!-- profile closing div -->
 </template>
 
 <script>
-import { Github, Linkedin } from 'lucide-vue-next';
 
 export default {
   name: "profile-view",
-
-  data() {
-    return {
-      github_link: "https://github.com/kellytan5/", 
-      linkedin_link: "https://linkedin.com/in/kelly-tan-09/"
-    };
-  },
-
-  components: {
-    Github, 
-    Linkedin
-  },
-
-  methods: {
-
-  }
 }
 </script>

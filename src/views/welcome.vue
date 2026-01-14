@@ -46,10 +46,6 @@ export default {
   },
 
   methods: {
-    start() {
-      this.$router.push('/aboutme');
-      console.log("start here");
-    },
     startLoading() {
       this.isLoading = true;
       this.progress = 0;
@@ -59,7 +55,7 @@ export default {
           this.progress += 10; // Increase progress
         } else {
           clearInterval(interval);
-          this.$router.push('/aboutme');
+          this.$router.push('/home');
         }
       }, 500);
     }
