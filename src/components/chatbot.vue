@@ -57,7 +57,7 @@ export default {
       this.$nextTick(this.scrollToBottom)
 
       try {
-        const response = await api.get('/api/chatbot/get-response/', {
+        const response = await api.get('/chatbot/', {
           params: { message: message }
         })
         this.messages.push({ from: 'bot', text: response.data.response })

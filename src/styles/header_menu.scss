@@ -1,0 +1,35 @@
+.item {
+  background-color: #FDFDF3;
+  border: 2px solid #6F7570;
+  box-shadow: 5px 5px;
+  text-align: center;
+  padding: 0 5px 0 5px;
+}
+
+.item:hover {
+  background-color: #DDBEA9;
+  cursor: pointer;
+}
+
+.socials-item {
+  width: 27px;
+  height: 27px;
+}
+
+.header-group {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.item-group {
+  display: flex;
+  gap: 24px;
+  justify-self: center;
+}
+
+.socials-group {
+  display: flex;
+  justify-self: end;
+  gap: 10px;
+}

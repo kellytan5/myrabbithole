@@ -1,48 +1,40 @@
 <template>
-  <div id="menu" class="web_menu">
-    <div id="aboutme" class="item" @click="aboutme">About Me</div>
-    <div id="education" class="item" @click="education">Education</div>
-    <div id="experiences" class="item" @click="experiences">Experiences</div>
-    <div id="certificates" class="item" @click="certificates">Certificates</div>
-    <div id="projects" class="item" @click="projects">Projects</div>
-    <div id="skills" class="item">Skills</div>
-    <div id="contactme" class="item" @click="contact_me = true">Contact Me</div>
-    <Contact v-if="contact_me" @close="contact_me = false"></Contact>
-  </div> <!-- menu closing div -->
+  <div class="header-group container">
+    <div class="left"></div>
+    <div class="item-group text">
+      <router-link class="item" to="/profile">Creator's Profile</router-link>
+      <router-link class="item" to="/education">Education</router-link>
+      <router-link class="item" to="/experiences">Experiences</router-link>
+      <router-link class="item" to="/projects">Projects</router-link>
+      <router-link class="item" to="/certificates">Certificates</router-link>
+    </div> <!-- item-group closing div -->
+    <div class="socials-group">
+      <a :href="github_link" target="_blank" rel="noopener noreferrer"><Github class="item socials-item"/></a>
+      <a :href="linkedin_link" target="_blank" rel="noopener noreferrer"><Linkedin class="item socials-item"/></a>
+    </div> <!-- item-group closing div -->
+  </div>
 </template>
 
 <script>
-import Contact from './contact.vue';
+import { Github, Linkedin } from 'lucide-vue-next';
 
 export default {
-  name: "web-menu",
+  name: "header-menu",
 
   components: {
-    Contact
+    Github, 
+    Linkedin
   },
 
   data() {
     return {
-      contact_me: false, // Controls contact_me modal visibility
+      github_link: "https://github.com/kellytan5/", 
+      linkedin_link: "https://linkedin.com/in/kelly-tan-09/"
     };
   },
-
-  methods: {
-    aboutme() {
-      this.$router.push('/aboutme');
-    }, 
-    education() {
-      this.$router.push('/education');
-    }, 
-    experiences() {
-      this.$router.push('/experiences');
-    }, 
-    certificates() {
-      this.$router.push('/certificates');
-    },
-    projects() {
-      this.$router.push('/projects');
-    }
-  }
 }
 </script>
+
+<style>
+@import '../styles/header_menu.scss'
+</style>
