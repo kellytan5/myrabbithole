@@ -1,20 +1,21 @@
 <template>
   <div>
-    <div class="title">
-      <p class="header-2">Education</p>
-      <p> {{ currentIndex + 1 }} / {{ edu_list.length }}</p>
-    </div>
+    <p class="header-2">Education</p>
     <LoadingSpinner v-if="isloading" />
     <div v-if="isError">
       <CloudAlert />
       <p>Looks like something went wrong.</p>
     </div>
     <div v-else-if="edu_list.length" class="card-container">
-        <Card_container :card="edu_list[currentIndex]" />
-        <div class="arrows">
-          <button class="back-btn" v-if="currentIndex > 0" @click="prevCard">←</button>
-          <button class="next-btn" v-if="currentIndex < edu_list.length - 1" @click="nextCard">→</button>
-        </div>
+      <div class="nav-left">
+        <ArrowBigLeft class="back-btn" v-if="currentIndex > 0" @click="prevCard" />
+      </div>
+      <div class="card-group">
+        <Card_container :card="edu_list[currentIndex]" :total="edu_list.length" />
+      </div>
+      <div class="nav-right">
+        <ArrowBigRight class="next-btn" v-if="currentIndex < edu_list.length - 1" @click="nextCard" />
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +23,7 @@
 <script>
 import Card_container from '@/components/card_container.vue';
 import LoadingSpinner from '@/components/loading_spinner.vue';
-import { CloudAlert } from 'lucide-vue-next';
+import { CloudAlert, ArrowBigRight, ArrowBigLeft } from 'lucide-vue-next';
 import api from '../api';
 
 export default {
@@ -30,7 +31,9 @@ export default {
   components: { 
     Card_container,
     LoadingSpinner, 
-    CloudAlert
+    CloudAlert, 
+    ArrowBigRight,
+    ArrowBigLeft
   },
   data() {
     return {
@@ -51,7 +54,7 @@ export default {
     async getData() {
       try {
         // fetch data 
-        const response = await api.get('/api/edu_list/');
+        const response = await api.get('/api/education/');
         // set the data returned as educations
         this.edu_list = response.data.sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
         console.log(this.edu_list);
