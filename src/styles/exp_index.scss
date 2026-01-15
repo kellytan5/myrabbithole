@@ -18,7 +18,7 @@
 
 .exp-list-card {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr; 
+  grid-template-columns: 1fr 1fr 0.15fr; 
   align-items: center;
   gap: 1%;
   height: 10vh;
@@ -26,21 +26,8 @@
 
 .showDetails {
   height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 3fr; 
-  gap: 1%;
 }
 
-.detail-list {
-  list-style-type: disc;
-  margin-bottom: 2%;
-}
-
-.detail-list li {
-  padding-bottom: 2%;
-}
-
-.detail-list li::marker {
-  color: #FDFDF3; /* Marker Colour */
-  font-size: 3vh;
+.overview {
+  padding-bottom: 1%;
 }
