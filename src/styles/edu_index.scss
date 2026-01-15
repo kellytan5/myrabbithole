@@ -4,37 +4,46 @@
 
 .back-btn, 
 .next-btn {
-  background-color: #EDD9D3;
-  border: none;
-  border-radius: 50%;
-  width: 3vw; /* Scales with viewport width */
-  height: 3vw;
-  min-width: 50px; /* Minimum size */
-  min-height: 50px;
-  max-width: 80px; /* Maximum size */
-  max-height: 80px;
-  cursor: pointer;
-  transition: opacity 0.3s ease-in-out, transform 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
+  width: 2rem;
+  height: 2rem;
+  stroke-width: 1.5;
 }
 
 .back-btn:hover,
 .next-btn:hover {
-  background: #dcc1ba;
+  color: #dcc1ba;
 }
 
 .card-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-areas: "left card right";
   align-items: center;
-  justify-content: center;
 }
 
-.card-container:hover .next-btn, 
-.card-container:hover .back-btn {
-  opacity: 1; /* Show on hover */
-  transform: translateX(-10px); /* Slight movement for effect */
+.nav-left {
+  grid-area: left;
+}
+
+.card-group {
+  grid-area: card;
+}
+
+.nav-right {
+  grid-area: right;
+}
+
+@media (max-width: 768px) {
+  .card-container{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "card"
+      "nav";
+    gap: 1rem;
+  }
+
+  .nav-left,
+  .nav-right {
+    grid-area: nav;
+  }
 }

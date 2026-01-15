@@ -3,19 +3,30 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 105vh; /* Ensure all cards maintain width */
   min-height: 65vh; /* Ensure all cards maintain height */
   background-color: #FDFDF3;
   border: 3px solid #000000;
   border-radius: 20px;
 }
 
+.card-container {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 100%; 
+  height: 100%;
+}
+
 .card-content {
   flex-grow: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 0.50fr;
   justify-content: space-between;
   align-items: flex-start;
   padding: 3%;
   padding-bottom: 0%;
+  height: 40vh;
 }
 
 .details {
@@ -63,21 +74,19 @@
   align-items: center;
 }
 
-.link {
-  color: #FDFDF3;
-  font-size: 20px;
-}
-
 @media (max-width: 768px) {
   .card {
-    width: 90%;
+    min-width: 55vh;
+    max-width: 55vh;
     min-height: auto; /* Allow flexibility on smaller screens */
   }
 
   .card-content {
-    flex-direction: column;
-    align-items: flex-start;
-    grid-gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.15fr;
+    gap: 1%;
+    height: 60vh;
   }
 
   .details {
@@ -91,10 +100,6 @@
 
 @media (max-width: 480px) {
   .card {
-    width: 95%;
-  }
-  
-  .info-footer {
-    padding: 3%;
+    min-width: 45vh;
   }
 }

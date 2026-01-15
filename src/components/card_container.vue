@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+  <div style="card-container">
     <div class="content">
       <div class="card text-paragraph">
         <div class="card-content">
@@ -15,13 +15,8 @@
           </div>
         </div> <!-- card-content closing div -->
         <div id="footer" class="info-footer">
-          <div class="text" id="footer-details">
-            <p>{{ card.name }}</p>
-            <p>{{ card.position }}</p>
-          </div>
-          <div id="link" class="link">
-            <a href="#" class="link">{{ card.link }} →</a>
-          </div>
+          <p>{{ card.name }}</p>
+          <p>{{ card.id }} / {{ total }}</p>
         </div> <!-- footer closing div -->
       </div> <!-- card closing div -->
     </div> <!-- content closing div -->
@@ -32,7 +27,8 @@
 export default {
   name: "card-container",
   props: {
-    card: Object
+    card: Object, 
+    total: Number
   },
   setup(props) {
     console.log(props.title)
