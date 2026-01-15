@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <!-- title -->
     <p class="header-2">Projects</p>
     <LoadingSpinner v-if="isloading" /> <!-- LoadingSpinner -->

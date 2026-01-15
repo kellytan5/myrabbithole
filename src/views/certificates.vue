@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <div class="title">
       <p class="header-2">Certificates</p>
     </div>

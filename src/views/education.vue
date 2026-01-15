@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <div class="title">
       <p class="header-2">Education</p>
       <p> {{ currentIndex + 1 }} / {{ edu_list.length }}</p>
