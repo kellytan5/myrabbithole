@@ -3,7 +3,7 @@
   border: 2px solid #6F7570;
   box-shadow: 5px 5px;
   text-align: center;
-  padding: 0 5px 0 5px;
+  padding: 0.15rem;
 }
 
 .item:hover {
@@ -12,8 +12,10 @@
 }
 
 .socials-item {
-  width: 27px;
-  height: 27px;
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke-width: 1.5;
+  padding: 0.15rem;
 }
 
 .header-group {
@@ -24,12 +26,30 @@
 
 .item-group {
   display: flex;
-  gap: 24px;
-  justify-self: center;
+  gap: 3vh;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .socials-group {
   display: flex;
   justify-self: end;
-  gap: 10px;
+  gap: 3vh;
+  padding: 1rem 5vh;
+}
+
+@media (max-width: 768px) {
+  .header-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item {
+    height: 0.5rem;
+  }
+
+  .socials-item {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
