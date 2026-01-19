@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <div v-if="$route.path !== '/'" class="header">
+    <div v-if="$route.path !== '/'" ref="headerRef" class="header">
       <Header></Header>
+    </div>
+    <div v-if="$route.path !== '/'" v-show="showSidebar" class="sidebar">
+      <Sidebar></Sidebar>
     </div>
     <router-view v-slot="{ Component }">
       <Transition name="slide-down">
@@ -13,17 +16,59 @@
 
 <script>
 import Header from "@/components/header.vue";
+import Sidebar from "@/components/sidebar.vue";
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header, 
+    Sidebar,
   },
   data() {
-    return {};
+    return {
+      showSidebar: false,
+      headerRef: null
+    };
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    initObserver() {
+      this.$nextTick(() => {
+        // clean up old observer 
+        if (this.observer) {
+          this.observer.disconnect();
+          this.observer = null;
+        }
+
+        // only run if header exists 
+        if (!this.$refs.headerRef) {
+          this.showSidebar = false;
+          return;
+        }
+
+        this.observer = new IntersectionObserver(
+          ([entry]) => {
+            console.log('Header visible: ', entry.isIntersecting);
+            this.showSidebar = !entry.isIntersecting;
+          },
+          { threshold: 0 }
+        );
+        this.observer.observe(this.$refs.headerRef);
+      });
+    }
+  },
+  mounted() {
+    this.initObserver();
+  },
+  watch: {
+    // re-run when route changes or on refresh
+    $route() {
+      this.initObserver();
+    }
+  },
+
+  beforeUnmount() {
+    this.observer?.disconnect();
+  }
 }
 </script>
 

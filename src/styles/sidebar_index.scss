@@ -1,0 +1,23 @@
+.sidebar-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 2fr 0.25fr;
+  gap: 3vh;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  box-sizing: border-box;
+}
+
+.sidebar-item {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.15rem;
+  stroke-width: 1.5;
+}
+
+.item-group {
+  display: flex;
+  gap: 3vh;
+  justify-content: center;
+  flex-wrap: wrap;
+}
