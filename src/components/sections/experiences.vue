@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import api from '../api';
+import api from '../../api';
 import LoadingSpinner from '@/components/loading_spinner.vue';
 import { CloudAlert, ChevronsDown, ChevronsUp } from 'lucide-vue-next';
 
@@ -82,5 +82,5 @@ export default {
 </script>
 
 <style>
-  @import '../styles/exp_index.scss';
+  @import '../../styles/exp_index.scss';
 </style>

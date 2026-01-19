@@ -59,7 +59,7 @@
 <script>
 import { Github, User, Figma, CloudAlert } from 'lucide-vue-next';
 // import Exhibition from '@/components/project_exhibit.vue';
-import api from '../api.js';
+import api from '../../api.js';
 import LoadingSpinner from '@/components/loading_spinner.vue';
 
 export default {
@@ -106,5 +106,5 @@ export default {
 </script>
 
 <style>
-  @import '../styles/project_index.scss';
+@import '../../styles/project_index.scss';
 </style>
