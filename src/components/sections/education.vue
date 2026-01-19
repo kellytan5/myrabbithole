@@ -24,7 +24,7 @@
 import Card_container from '@/components/card_container.vue';
 import LoadingSpinner from '@/components/loading_spinner.vue';
 import { CloudAlert, ArrowBigRight, ArrowBigLeft } from 'lucide-vue-next';
-import api from '../api';
+import api from '../../api';
 
 export default {
   name: "education-view",
@@ -78,5 +78,5 @@ export default {
 </script>
 
 <style>
-  @import '../styles/edu_index.scss';
+  @import '../../styles/edu_index.scss';
 </style>

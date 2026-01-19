@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import ProfileSection from './profile.vue';
-import EducationSection from './education.vue';
-import ExperienceSection from './experiences.vue';
-import ProjectSection from './projects.vue';
-import CertificateSection from './certificates.vue';
+import ProfileSection from '../components/sections/profile.vue';
+import EducationSection from '../components/sections/education.vue';
+import ExperienceSection from '../components/sections/experiences.vue';
+import ProjectSection from '../components/sections/projects.vue';
+import CertificateSection from '../components/sections/certificates.vue';
 
 export default {
   name: "main-view",

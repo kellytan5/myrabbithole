@@ -1,17 +1,4 @@
 @media (max-width: 768px) {
-  .back-home {
-    width: 90%;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .profile-socials {
-    width: 20%;
-  }
-
   .profile-text-container {
     display: flex;
     flex-direction: column;
@@ -21,18 +8,6 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-  }
-
-  .mini-menu {
-    width: 80%;
-  }
-
-  .menu-button {
-    margin: 1%;
-  }
-
-  .menu-container.open .menu-btn {
-    right: 80%;
   }
 
   .text {
