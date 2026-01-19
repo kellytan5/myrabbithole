@@ -36,5 +36,5 @@ export default {
 </script>
 
 <style>
-@import '../styles/header_menu.scss'
+@import '../styles/header_index.scss';
 </style>
