@@ -1,5 +1,5 @@
 <template>
-  <div class="chatbot">
+  <div class="chatbot-container">
     <div class="chatbot-header">
       Chat with me
     </div>

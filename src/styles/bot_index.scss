@@ -1,14 +1,11 @@
-.chatbot {
-  position: absolute;
-  bottom: 5%;
-  width: 80%;
-  height: 47%;
+.chatbot-container {
+  width: 100%;
+  height: 65vh;
   display: flex;
   flex-direction: column;
-  border: 1px solid #FDFDF3;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   background: #FDFDF3;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 .chatbot-header {
