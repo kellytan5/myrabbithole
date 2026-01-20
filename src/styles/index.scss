@@ -97,9 +97,14 @@ ul {
   right: 5%;
   top: 15%;
   width: 8vh;
+  height: 69vh;
   background-color: #C9D1A3;
-  opacity: 0.75;
   border-radius: 1.5rem;
+  z-index: 1000;
+}
+
+.sidebar.expanded {
+  width: 45vh;
 }
 
 :focus:not(:focus-visible) {

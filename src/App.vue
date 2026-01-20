@@ -3,8 +3,8 @@
     <div v-if="$route.path !== '/'" ref="headerRef" class="header">
       <Header></Header>
     </div>
-    <div v-if="$route.path !== '/'" v-show="showSidebar" class="sidebar">
-      <Sidebar></Sidebar>
+    <div v-if="$route.path !== '/'" v-show="showSidebar">
+      <Sidebar class="sidebar" :expanded="isChatOpen" @toggle-chat="toggleChat"></Sidebar>
     </div>
     <router-view v-slot="{ Component }">
       <Transition name="slide-down">
@@ -27,10 +27,14 @@ export default {
   data() {
     return {
       showSidebar: false,
-      headerRef: null
+      headerRef: null, 
+      isChatOpen: false,
     };
   },
   methods: {
+    toggleChat() {
+      this.isChatOpen = !this.isChatOpen;
+    },
     initObserver() {
       this.$nextTick(() => {
         // clean up old observer 
