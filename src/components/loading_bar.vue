@@ -9,25 +9,32 @@
 <script>
 export default {
   name: "loading-bar",
-  data() {
-    return {
-      progress: 0
-    };
-  },
-  mounted() {
-    this.startLoading();
+  props: {
+    progress: Number
   }, 
-  methods: {
-    startLoading() {
-      const interval = setInterval(() => {
-        if (this.progress < 100) {
-          this.progress += 10;
-        } else {
-          clearInterval(interval);
-        }
-      }, 500);
+  watch: {
+    progress(p) {
+      console.log('Progress: ', p);
     }
   }
+  // data() {
+  //   return {
+  //   };
+  // },
+  // mounted() {
+  //   this.startLoading();
+  // }, 
+  // methods: {
+  //   startLoading() {
+  //     const interval = setInterval(() => {
+  //       if (this.progress < 100) {
+  //         this.progress += 10;
+  //       } else {
+  //         clearInterval(interval);
+  //       }
+  //     }, 500);
+  //   }
+  // }
 }
 </script>
 

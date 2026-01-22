@@ -113,8 +113,8 @@ ul {
 }
 
 .title {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 2fr auto 0.05fr;
   align-items: center;
   justify-content: space-between;
   width: 100%;

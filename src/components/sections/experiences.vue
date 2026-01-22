@@ -1,7 +1,6 @@
 <template>
   <div>
     <p class="header-2">Work Experiences</p>
-    <LoadingSpinner v-if="isloading" /> <!-- Loading Spinner -->
     <div v-if="isError"> <!-- Load Error -->
       <CloudAlert />
       <p>Looks like something went wrong.</p>
@@ -35,45 +34,24 @@
 </template>
 
 <script>
-import api from '../../api';
-import LoadingSpinner from '@/components/loading_spinner.vue';
 import { CloudAlert, ChevronsDown, ChevronsUp } from 'lucide-vue-next';
 
 export default {
   name: "experiences-list-view", 
+  props: {
+    exp_list: Array
+  },
   components: {
-    LoadingSpinner,
     CloudAlert, 
     ChevronsDown,
     ChevronsUp
   },
   data() { 
     return {
-      exp_list: [], 
-      isloading: true,
       isError: false,
     }
   },
-  async mounted() {
-    try {
-      await this.getData()
-    } finally {
-      this.isloading = false
-    }
-  },
   methods: {
-    async getData() {
-      try {
-        // fetch data 
-        const response = await api.get('/api/experiences/');
-        // set the data returned as experiences
-        this.exp_list = response.data;
-        console.log(this.exp_list);
-      } catch (error) {
-        this.isError = true;
-        console.error('There was an error: ', error);
-      }
-    }, 
     toggleDetails(index) {
       this.exp_list[index].showDetails = !this.exp_list[index].showDetails;
     }, 
