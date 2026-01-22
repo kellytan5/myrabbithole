@@ -4,13 +4,13 @@
       <ProfileSection />
     </section>
     <section id="education">
-      <EducationSection />
+      <EducationSection :edu_list="education" />
     </section>
     <section id="experiences">
-      <ExperienceSection />
+      <ExperienceSection :exp_list="experiences" />
     </section>
     <section id="projects">
-      <ProjectSection />
+      <ProjectSection :project_list="projects" />
     </section>
     <section id="certificates">
       <CertificateSection />
@@ -25,6 +25,8 @@ import ExperienceSection from '../components/sections/experiences.vue';
 import ProjectSection from '../components/sections/projects.vue';
 import CertificateSection from '../components/sections/certificates.vue';
 
+import { mainStore } from '../stores/main';
+
 export default {
   name: "main-view",
   components: {
@@ -33,6 +35,25 @@ export default {
     ExperienceSection,
     ProjectSection,
     CertificateSection
+  }, 
+  computed: {
+    education() {
+      return mainStore.education;
+    },
+    experiences() {
+      return mainStore.experiences;
+    },
+    projects() {
+      return mainStore.projects;
+    },
+    isReady() {
+      return mainStore.isReady;
+    }
+  },
+  mounted() {
+    if (!this.isReady) {
+      this.$router.push('/');
+    }
   }
 }
 </script>

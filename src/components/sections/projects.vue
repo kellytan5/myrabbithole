@@ -2,7 +2,6 @@
   <div>
     <!-- title -->
     <p class="header-2">Projects</p>
-    <LoadingSpinner v-if="isloading" /> <!-- LoadingSpinner -->
     <div v-if="isError"> <!-- Load Error -->
       <CloudAlert />
       <p>Looks like something went wrong.</p>
@@ -59,48 +58,25 @@
 <script>
 import { Github, User, Figma, CloudAlert } from 'lucide-vue-next';
 // import Exhibition from '@/components/project_exhibit.vue';
-import api from '../../api.js';
-import LoadingSpinner from '@/components/loading_spinner.vue';
 
 export default {
   name: "projects-view", 
+  props: {
+    project_list: Array
+  }, 
   components: {
     Github, 
     User, 
     // Images, 
     Figma,
     // Exhibition, 
-    LoadingSpinner,
     CloudAlert
   }, 
   data() {
     return {
-      project_list: [], 
       // exhibitIndex: 0,
-      isloading: true,
       isError: false,
     };
-  },
-  async mounted() {
-    try {
-      await this.getData()
-    } finally {
-      this.isloading = false
-    }
-  },
-  methods: {
-    async getData() {
-      try {
-        // fetch data 
-        const response = await api.get('/api/projects/');
-        // set the data returned as projects
-        this.project_list = response.data;
-        console.log(this.project_list);
-      } catch (error) {
-        this.isError = true;
-        console.error('There was an error: ', error);
-      } 
-    }
   }
 }
 </script>

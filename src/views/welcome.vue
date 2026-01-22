@@ -14,10 +14,11 @@
           <p>Hi! I'm Kelly Tan</p>
           <p>Welcome to My First Official Project, My Portfolio.</p>
         </div> <!-- opening_msg closing div -->
-        <Button class="start-btn" v-if="!isLoading" action_msg="Start Here" @click="startLoading"></Button> <!-- use Button component -->
+        <Button class="start-btn" v-if="!loading.isLoading" action_msg="Start Here" @click="startLoading"></Button> <!-- use Button component -->
         <div id="loading_bar" v-else class="retro-loading-bar">
           <p class="loading-msg">Loading...</p>
-          <LoadingBar :loading="isLoading" :progress="progress" />
+          <LoadingBar :loading="loading.isLoading" :progress="loading.progress" />
+          <p v-if="loading.error" class="error-msg">Looks like something went wrong. Please try again later. </p>
         </div> <!-- loading_bar closing div -->
       </div> <!-- content closing div -->
     </div> <!-- window closing div -->
@@ -28,6 +29,8 @@
 import Button from "../components/button.vue";
 import LoadingBar from "../components/loading_bar.vue";
 import { CodeXml } from 'lucide-vue-next';
+import { loadingStore } from '../stores/loading';
+import { bootstrapAppData } from "../services/bootstrap";
 
 export default {
   name: 'welcome-view',
@@ -40,24 +43,15 @@ export default {
 
   data() {
     return {
-      isLoading: false,
-      progress: 0,
+      loading: loadingStore
     };
   },
 
   methods: {
-    startLoading() {
-      this.isLoading = true;
-      this.progress = 0;
-      
-      const interval = setInterval(() => {
-        if (this.progress < 100) {
-          this.progress += 10; // Increase progress
-        } else {
-          clearInterval(interval);
-          this.$router.push('/home');
-        }
-      }, 500);
+    async startLoading() {
+      if (this.loading.isLoading) return;
+      await bootstrapAppData();
+      this.$router.push('/home');
     }
   }
 }
