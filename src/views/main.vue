@@ -49,11 +49,6 @@ export default {
     isReady() {
       return mainStore.isReady;
     }
-  },
-  mounted() {
-    if (!this.isReady) {
-      this.$router.push('/');
-    }
   }
 }
 </script>
