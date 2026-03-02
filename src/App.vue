@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div v-if="$route.path !== '/'" ref="headerRef" class="header">
+    <div v-if="$route.path == '/'" ref="headerRef" class="header">
       <Header></Header>
     </div>
-    <div v-if="$route.path !== '/'" v-show="showSidebar">
+    <div v-if="$route.path == '/'" v-show="showSidebar">
       <Sidebar class="sidebar" :expanded="isChatOpen" @toggle-chat="toggleChat"></Sidebar>
     </div>
     <router-view v-slot="{ Component }">
@@ -17,6 +17,8 @@
 <script>
 import Header from "@/components/header.vue";
 import Sidebar from "@/components/sidebar.vue";
+import api from "@/api";
+import { mainStore } from "./stores/main";
 
 export default {
   name: 'App',
@@ -29,6 +31,7 @@ export default {
       showSidebar: false,
       headerRef: null, 
       isChatOpen: false,
+      store: mainStore,
     };
   },
   methods: {
@@ -58,7 +61,28 @@ export default {
         );
         this.observer.observe(this.$refs.headerRef);
       });
+    }, 
+    async fetchData() {
+      console.log('API base URL:', import.meta.env.VITE_API_BASE_URL);
+      if (mainStore.isReady) return;
+      try {
+        const [education, experiences, projects] = await Promise.all([
+          api.get('/api/education/').catch(e => { console.error('education failed:', e); return { data: [] }; }),
+          api.get('/api/experiences/').catch(e => { console.error('experiences failed:', e); return { data: [] }; }),
+          api.get('/api/projects/').catch(e => { console.error('projects failed:', e); return { data: [] }; }),
+        ]);
+        mainStore.setData({
+          education: education.data,
+          experiences: experiences.data,
+          projects: projects.data,
+        });
+      } catch (err) {
+        console.error('Failed to fetch data:', err);
+      }
     }
+  },
+  async created() {
+    await this.fetchData();
   },
   mounted() {
     this.initObserver();

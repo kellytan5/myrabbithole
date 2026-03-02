@@ -6,11 +6,11 @@
     </div>
     <div class="sidebar-container">
       <div class="sidebar-item-group">
-        <router-link class="sidebar-item" :to="{ path: '/home', hash: '#profile' }"><UserRound /></router-link>
-        <router-link class="sidebar-item" :to="{ path: '/home', hash: '#education' }"><GraduationCap /></router-link>
-        <router-link class="sidebar-item" :to="{ path: '/home', hash: '#experiences' }"><BriefcaseBusiness /></router-link>
-        <router-link class="sidebar-item" :to="{ path: '/home', hash: '#projects' }"><FolderCode /></router-link>
-        <router-link class="sidebar-item" :to="{ path: '/home', hash: '#certificates' }"><Award /></router-link>
+        <router-link class="sidebar-item" :to="{ path: '/', hash: '#profile' }"><UserRound /></router-link>
+        <router-link class="sidebar-item" :to="{ path: '/', hash: '#education' }"><GraduationCap /></router-link>
+        <router-link class="sidebar-item" :to="{ path: '/', hash: '#experiences' }"><BriefcaseBusiness /></router-link>
+        <router-link class="sidebar-item" :to="{ path: '/', hash: '#projects' }"><FolderCode /></router-link>
+        <router-link class="sidebar-item" :to="{ path: '/', hash: '#certificates' }"><Award /></router-link>
       </div>
       <div></div>
       <div class="chatbot-toggle">
