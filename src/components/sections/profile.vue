@@ -14,7 +14,7 @@
       </div>
     </div> <!-- aboutMe closing div -->
     <div style="display: flex; align-items: center; justify-content: center;">
-      <img style="width: 400px; height: 400px; border-radius: 10%;" src="../../../public/profile_2.png" alt="image" />
+      <img style="width: 400px; height: 400px; border-radius: 10%;" src="/profile_2.png" alt="image" />
     </div>
   </div> <!-- profile closing div -->
 </template>
