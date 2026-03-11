@@ -1,5 +1,5 @@
 <template>
-  <div style="card-container">
+  <div class="card-container">
     <div class="content">
       <div class="card text-paragraph">
         <div class="card-content">
@@ -52,6 +52,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   @import '../styles/card_index.scss';
 </style>

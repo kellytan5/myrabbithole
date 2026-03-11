@@ -55,6 +55,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   @import '../../styles/edu_index.scss';
 </style>
