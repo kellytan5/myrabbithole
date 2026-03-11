@@ -1,0 +1,34 @@
+.content-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.2fr 2fr 0.2fr;
+  grid-template-areas: "left card right";
+}
+
+.card-group {
+  grid-area: card;
+  background-color: #FFFFFF; 
+  border: 2px solid #6F7570;
+  box-shadow: 7px 7px 0px #6F7570;
+}
+
+.nav-left {
+  grid-area: left;
+  position: absolute;
+  top: 42vh;
+  left: 0;
+}
+
+.nav-right {
+  grid-area: right;
+  position: absolute;
+  top: 42vh;
+  right: 0;
+}
+
+.arrows {
+  height: 2rem;
+  width: 2rem;
+  color: #ABBAF4;
+}
+
