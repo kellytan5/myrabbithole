@@ -1,4 +1,4 @@
-.card-container {
+.content-container {
   display: grid;
   grid-template-columns: 0.5fr 2fr 0.5fr;
   grid-template-areas: "left card right";
@@ -7,27 +7,17 @@
 
 .nav-left {
   grid-area: left;
+  left: 0;
 }
 
 .card-group {
   grid-area: card;
+  background-color: #FFFFFF; 
+  border: 0.25rem solid #6F7570;
+  border-radius: 20px;
 }
 
 .nav-right {
   grid-area: right;
-}
-
-@media (max-width: 768px) {
-  .card-container{
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "card"
-      "nav";
-    gap: 1rem;
-  }
-
-  .nav-left,
-  .nav-right {
-    grid-area: nav;
-  }
+  right: 0;
 }

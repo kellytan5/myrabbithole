@@ -5,12 +5,12 @@
       <CloudAlert />
       <p>Looks like something went wrong.</p>
     </div>
-    <div v-else-if="edu_list.length" class="card-container">
+    <div v-else-if="edu_list.length" class="content-container">
       <div class="nav-left">
         <ArrowBigLeft class="back-btn" v-if="currentIndex > 0" @click="prevCard" />
       </div>
       <div class="card-group">
-        <Card_container :card="edu_list[currentIndex]" :total="edu_list.length" />
+        <Card :card="edu_list[currentIndex]" :total="edu_list.length" />
       </div>
       <div class="nav-right">
         <ArrowBigRight class="next-btn" v-if="currentIndex < edu_list.length - 1" @click="nextCard" />
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Card_container from '../card_container.vue';
+import Card from '../edu_card.vue';
 import { CloudAlert, ArrowBigRight, ArrowBigLeft } from 'lucide-vue-next';
 
 export default {
@@ -29,7 +29,7 @@ export default {
     edu_list: Array
   }, 
   components: { 
-    Card_container,
+    Card,
     CloudAlert, 
     ArrowBigRight,
     ArrowBigLeft
@@ -56,5 +56,5 @@ export default {
 </script>
 
 <style scoped>
-  @import '../../styles/edu_index.scss';
+  @import '../../styles/edu_index/index.scss';
 </style>
