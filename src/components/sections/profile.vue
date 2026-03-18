@@ -1,5 +1,5 @@
 <template>
-  <div class="container content profile-container profile-text-container">
+  <div class="center-container profile-text-container">
     <div id="aboutme" class="text-paragraph">
       <p class="text">Hey, My name is </p>
       <p class="header-1 name">Kelly Tan</p>
@@ -13,8 +13,8 @@
           collaboration, and building digital experiences that feel seamless from concept to deployment.</p>
       </div>
     </div> <!-- aboutMe closing div -->
-    <div style="display: flex; align-items: center; justify-content: center;">
-      <img style="width: 400px; height: 400px; border-radius: 10%;" src="/profile_2.png" alt="image" />
+    <div class="center-container">
+      <img style="width: 50vh; height: 50vh; border-radius: 10%;" src="/profile_2.png" alt="image" />
     </div>
   </div> <!-- profile closing div -->
 </template>

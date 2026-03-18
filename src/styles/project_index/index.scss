@@ -1,8 +1,8 @@
 .content-container {
-  position: relative;
   display: grid;
   grid-template-columns: 0.2fr 2fr 0.2fr;
   grid-template-areas: "left card right";
+  align-items: center;
 }
 
 .card-group {
@@ -14,15 +14,11 @@
 
 .nav-left {
   grid-area: left;
-  position: absolute;
-  top: 42vh;
   left: 0;
 }
 
 .nav-right {
   grid-area: right;
-  position: absolute;
-  top: 42vh;
   right: 0;
 }
 
@@ -32,3 +28,16 @@
   color: #ABBAF4;
 }
 
+@media (max-width: 1280px) {
+  .content-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 0.1fr;
+    grid-template-areas: 
+      "card card" 
+      "left right";
+  }
+
+  .nav-left, .nav-right {
+    padding-top: 5%;
+  }
+}

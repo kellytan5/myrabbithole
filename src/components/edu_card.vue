@@ -1,14 +1,14 @@
 <template>
   <!-- container -->
   <div class="card-container">
-    <div class="details-content">
+    <div class="details-container">
       <div class="info-text">
         <p class="header-3">{{ card.title }}</p>
         <p class="description">{{ card.description }}</p>
       </div>
-      <div class="details">
+      <div class="center-container">
         <p class="info-duration">{{ card.location }} [{{ formatDate(card.start_date) }}-{{ formatDate(card.end_date) }}]</p>
-        <div id="img" class="img-box">
+        <div id="img" class="img-box center-container">
           <img :src="card.image" alt="image" />
         </div>
       </div>

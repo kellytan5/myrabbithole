@@ -6,11 +6,12 @@
 }
 
 .sidebar-container {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 3fr 2fr 0.25fr;
+  grid-template-rows: 2fr 1fr 0.5fr;
   gap: 3vh;
-  align-items: center;
+  align-items: flex-end;
   padding: 1rem 0.5rem;
   box-sizing: border-box;
 }
