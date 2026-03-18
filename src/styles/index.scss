@@ -74,7 +74,7 @@ ul {
   height: 75vh;
 }
 
-.profile-container {
+.center-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,6 +84,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5%;
+  padding: 2% 5%;
 }
 
 .related-projects {
