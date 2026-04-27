@@ -1,9 +1,12 @@
 <template>
   <div>
     <p class="header-2">Education</p>
-    <div v-if="isError">
+    <div v-if="isLoading">
+      <p>Loading...</p>
+    </div>
+    <div v-else-if="isError">
       <CloudAlert />
-      <p>Looks like something went wrong.</p>
+      <p>Loading</p>
     </div>
     <div v-else-if="edu_list.length" class="content-container">
       <div class="nav-left">
@@ -27,18 +30,24 @@ export default {
   name: "education-view",
   props: {
     edu_list: Array
-  }, 
-  components: { 
+  },
+  components: {
     Card,
-    CloudAlert, 
+    CloudAlert,
     ArrowBigRight,
     ArrowBigLeft
   },
   data() {
     return {
-      currentIndex: 0, 
+      currentIndex: 0,
+      isLoading: true,
       isError: false
     };
+  },
+  watch: {
+    edu_list(val) {
+      if (val) this.isLoading = false;
+    }
   },
   methods: {
     nextCard() {
@@ -56,5 +65,5 @@ export default {
 </script>
 
 <style scoped>
-  @import '../../styles/edu_index/index.scss';
+@import '../../styles/edu_index/index.scss';
 </style>

@@ -1,6 +1,9 @@
 <template>
   <div>
     <p class="header-2">Work Experiences</p>
+    <div v-if="isLoading">
+      <p>Loading...</p>
+    </div>
     <div v-if="isError"> <!-- Load Error -->
       <CloudAlert />
       <p>Looks like something went wrong.</p>
@@ -37,28 +40,34 @@
 import { CloudAlert, ChevronsDown, ChevronsUp } from 'lucide-vue-next';
 
 export default {
-  name: "experiences-list-view", 
+  name: "experiences-list-view",
   props: {
     exp_list: Array
   },
   components: {
-    CloudAlert, 
+    CloudAlert,
     ChevronsDown,
     ChevronsUp
   },
-  data() { 
+  data() {
     return {
       isError: false,
+      isLoading: true
+    }
+  },
+  watch: {
+    exp_list(val) {
+      if (val) this.isLoading = false;
     }
   },
   methods: {
     toggleDetails(index) {
       this.exp_list[index].showDetails = !this.exp_list[index].showDetails;
-    }, 
+    },
   }
 }
 </script>
 
 <style>
-  @import '../../styles/exp_index.scss';
+@import '../../styles/exp_index.scss';
 </style>
