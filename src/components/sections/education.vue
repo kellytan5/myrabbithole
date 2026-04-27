@@ -6,7 +6,7 @@
     </div>
     <div v-else-if="isError">
       <CloudAlert />
-      <p>Loading</p>
+      <p>Looks like something went wrong.</p>
     </div>
     <div v-else-if="edu_list.length" class="content-container">
       <div class="nav-left">
