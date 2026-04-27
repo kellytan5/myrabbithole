@@ -2,6 +2,9 @@
   <div>
     <!-- title -->
     <p class="header-2">Projects</p>
+    <div v-if="isLoading">
+      <p>Loading...</p>
+    </div>
     <div v-if="isError"> <!-- Load Error -->
       <CloudAlert />
       <p>Looks like something went wrong.</p>
@@ -12,7 +15,7 @@
         <ChevronsLeft class="arrows" v-if="currentIndex > 0" @click="prevCard" />
       </div>
       <div class="card-group">
-        <Project_Card :item="project_list[currentIndex]"/>
+        <Project_Card :item="project_list[currentIndex]" />
       </div>
       <div class="nav-right">
         <ChevronsRight class="arrows" v-if="currentIndex < project_list.length - 1" @click="nextCard" />
@@ -26,22 +29,28 @@ import { ChevronsRight, ChevronsLeft, CloudAlert } from 'lucide-vue-next';
 import Project_Card from '@/components/project_card.vue';
 
 export default {
-  name: "projects-view", 
+  name: "projects-view",
   props: {
     project_list: Array
-  }, 
+  },
   components: {
     Project_Card,
-    ChevronsRight, 
+    ChevronsRight,
     ChevronsLeft,
     CloudAlert
-  }, 
+  },
   data() {
     return {
-      currentIndex: 0, 
+      currentIndex: 0,
       isError: false,
+      isLoading: true
     };
-  }, 
+  },
+  watch: {
+    project_list(val) {
+      if (val) this.isLoading = false;
+    }
+  },
   methods: {
     nextCard() {
       if (this.currentIndex < this.project_list.length - 1) {
@@ -58,5 +67,5 @@ export default {
 </script>
 
 <style scoped>
-  @import '../../styles/project_index/index.scss';
+@import '../../styles/project_index/index.scss';
 </style>
