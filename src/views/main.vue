@@ -12,9 +12,6 @@
     <section id="projects">
       <ProjectSection :project_list="projects" />
     </section>
-    <section id="certificates">
-      <CertificateSection />
-    </section>
   </div>
 </template>
 
@@ -23,7 +20,6 @@ import ProfileSection from '../components/sections/profile.vue';
 import EducationSection from '../components/sections/education.vue';
 import ExperienceSection from '../components/sections/experiences.vue';
 import ProjectSection from '../components/sections/projects.vue';
-import CertificateSection from '../components/sections/certificates.vue';
 
 import { mainStore } from '../stores/main';
 
@@ -31,11 +27,10 @@ export default {
   name: "main-view",
   components: {
     ProfileSection,
-    EducationSection, 
+    EducationSection,
     ExperienceSection,
-    ProjectSection,
-    CertificateSection
-  }, 
+    ProjectSection
+  },
   computed: {
     education() {
       return mainStore.education;
@@ -57,7 +52,8 @@ export default {
 .main-container {
   display: flex;
   flex-direction: column;
-  gap: 80px; /* space between sections */
+  gap: 80px;
+  /* space between sections */
   scroll-behavior: smooth;
 }
 </style>

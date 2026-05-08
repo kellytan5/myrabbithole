@@ -20,14 +20,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr 0.15fr; 
   align-items: center;
-  gap: 1%;
-  height: 10vh;
+  padding: 0.75rem;
 }
 
 .showDetails {
-  height: 100%;
+  padding: 0.75rem;
+}
+
+.expand {
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 .overview {
-  padding-bottom: 1%;
+  padding-bottom: 0.5rem;
 }
