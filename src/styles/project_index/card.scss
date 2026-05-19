@@ -24,10 +24,31 @@
   min-height: 0; /* Crucial — prevents flex children from overflowing */
   overflow: hidden;
 
+  &.scrollable {
+    overflow-y: auto;
+  }
+
   img, video, iframe {
     height: 100%;
     width: 100%;
     object-fit: contain;
+  }
+}
+
+.code-viewer {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  text-align: left;
+
+  pre {
+    padding: 1rem;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
   }
 }
 
@@ -46,10 +67,10 @@
 }
 
 .showcase-caption {
-  background-color: #FFF;
   padding: 1rem 1.5rem;
   display: flex;
-  align-items: end;
+  flex-direction: column;
+  text-align: left;
   flex-shrink: 0; /* Prevents caption from being squished */
 }
 
@@ -99,7 +120,8 @@
 
 .title {
   display: grid;
-  grid-template-columns: 2fr 0.1fr;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
 }
 
 .title-position {
@@ -111,6 +133,7 @@
   font-weight: 700;
   color: #6B705C;
   opacity: 0.5;
+  text-align: right;
 }
 
 .tags {
@@ -190,8 +213,7 @@
   }
 
   .two-col-section {
-    display: flex; 
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .card-tags {

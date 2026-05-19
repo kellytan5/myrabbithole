@@ -7,7 +7,6 @@
         <router-link class="item text" :to="{ path: '/', hash: '#education' }">Education</router-link>
         <router-link class="item text" :to="{ path: '/', hash: '#experiences' }">Experiences</router-link>
         <router-link class="item text" :to="{ path: '/', hash: '#projects' }">Projects</router-link>
-        <router-link class="item text" :to="{ path: '/', hash: '#certificates' }">Certificates</router-link>
       </div> <!-- item-group closing div -->
       <div class="socials-group">
         <a :href="github_link" target="_blank" rel="noopener noreferrer">
