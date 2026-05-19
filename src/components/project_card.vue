@@ -129,6 +129,9 @@ export default {
     }
   },
   watch: {
+    item() {
+      this.currentIndex = 0
+    },
     current: {
       immediate: true,
       handler(val) {
