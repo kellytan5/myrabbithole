@@ -1,28 +1,55 @@
+// Card Container
 .card-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-bottom: 5%;
-  gap: 0.75rem;
+  align-items: stretch;
 }
 
+// Gallery 
 .gallery-container {
   background-color: #D9D9D9;
-  width: 100%;
-  height: 420px;
+  height: 30rem;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column; /* Stack media and caption vertically */
 
   &.has-resource {
     background-color: white;
   }
 }
 
-img, video, iframe {
+.showcase-media {
+  flex: 1;
+  min-height: 0; /* Crucial — prevents flex children from overflowing */
+  overflow: hidden;
+
+  &.scrollable {
+    overflow-y: auto;
+  }
+
+  img, video, iframe {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.code-viewer {
   height: 100%;
   width: 100%;
-  object-fit: contain;
-  display: block;
+  overflow: auto;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  text-align: left;
+
+  pre {
+    padding: 1rem;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+  }
 }
 
 .nav-left-gallery {
@@ -39,17 +66,36 @@ img, video, iframe {
   z-index: 1;
 }
 
+.showcase-caption {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex-shrink: 0; /* Prevents caption from being squished */
+}
+
 .arrows {
   height: 2rem;
   width: 2rem;
   color: #6B705C;
 }
 
+// Content
 .info-container {
-  width: 90%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid black;
+  gap: 0.5rem;
 }
 
 .header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.header-tags {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "left right";
@@ -68,13 +114,14 @@ img, video, iframe {
   display: flex; 
   flex-direction: row;
   justify-content: flex-end;
-  gap: 3%;
+  gap: 0.25rem;
   align-items: center;
 }
 
 .title {
   display: grid;
-  grid-template-columns: 2fr 0.1fr;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
 }
 
 .title-position {
@@ -86,6 +133,7 @@ img, video, iframe {
   font-weight: 700;
   color: #6B705C;
   opacity: 0.5;
+  text-align: right;
 }
 
 .tags {
@@ -104,7 +152,6 @@ img, video, iframe {
 
 .case-study-btn {
   display: flex;
-  width: 90%;
   justify-content: flex-start;
 }
 
@@ -112,23 +159,23 @@ img, video, iframe {
   background: none;
   border: 1px solid #CB997E;
   color: #CB997E;
-  padding: 1%;
+  padding: 0.5rem;
   white-space: nowrap;
   width: auto;
-  border-radius: 3px;
+  border-radius: 0.15rem;
   display: flex;
   flex-direction: row;
-  gap: 2%;
+  gap: 0.5rem;
   align-items: center;
 }
 
+// Case Study
 .case-study-container {
   border: 1px solid black;
-  width: 90%;
 }
 
 .case-study-section {
-  padding: 2%;
+  padding: 0.5rem;
   text-align: left;
 }
 
@@ -140,29 +187,38 @@ img, video, iframe {
   border-bottom: 1px solid black; 
   display: grid; 
   grid-template-columns: 1fr 1fr; 
-  gap: 5%;
+  gap: 1rem;
 }
 
 .card-links {
-  width: 90%;
   display: flex;
   justify-content: flex-start;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 @media (max-width: 1280px) {
   .header-container {
+    gap: 0.5rem;
+  }
+
+  .header-tags {
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
   }
 
   .role {
     justify-content: flex-start;
+    font-size: 0.85rem;
   }
 
   .two-col-section {
-    display: flex; 
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  .card-tags {
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
   
   .card-links {

@@ -1,7 +1,10 @@
 .content-container {
   display: grid;
-  grid-template-columns: 0.2fr 2fr 0.2fr;
-  grid-template-areas: "left card right";
+  grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr 2fr;
+    grid-template-areas: 
+      "left right"  
+      "card card";
   align-items: center;
 }
 
@@ -22,22 +25,12 @@
   right: 0;
 }
 
+.nav-left, .nav-right {
+  padding-bottom: 0.75rem;
+}
+
 .arrows {
   height: 2rem;
   width: 2rem;
   color: #ABBAF4;
-}
-
-@media (max-width: 1280px) {
-  .content-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 0.1fr;
-    grid-template-areas: 
-      "card card" 
-      "left right";
-  }
-
-  .nav-left, .nav-right {
-    padding-top: 5%;
-  }
 }

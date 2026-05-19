@@ -17,16 +17,15 @@
               <p>{{ item.company }}</p>
             </div>
             <p style="text-align: right;">{{ item.environment }}</p>
-            <div v-if="!item.showDetails">
+            <div v-if="!item.showDetails" class="expand">
               <ChevronsDown strokeWidth={3} />
             </div>
-            <div v-if="item.showDetails">
+            <div v-if="item.showDetails" class="expand">
               <ChevronsUp strokeWidth={3} />
             </div>
           </div> <!-- title closing div -->
           <div v-if="item.showDetails">
             <div class="showDetails text-paragraph">
-              <div></div> <!-- Empty Column -->
               <div class="overview">{{ item.overview }}</div>
             </div>
           </div> <!-- ShowDetails closing div-->

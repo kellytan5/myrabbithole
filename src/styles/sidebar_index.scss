@@ -2,16 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1.5vh;
+  padding: 1rem;
 }
 
 .sidebar-container {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr 1fr 0.5fr;
-  gap: 3vh;
-  align-items: flex-end;
+  grid-template-rows: 4fr 3fr 1fr;
+  gap: 1rem;
+  align-items: center;
   padding: 1rem 0.5rem;
   box-sizing: border-box;
 }
@@ -24,7 +24,6 @@
 }
 
 .sidebar-shell.expanded {
-  height: 69vh;
   display: grid;
   grid-template-columns: 2fr 0.5fr;
 }
@@ -32,8 +31,5 @@
 .sidebar-item-group {
   display: flex;
   flex-direction: column;
-  gap: 3vh;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  gap: 1rem;
 }
